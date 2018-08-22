@@ -8,7 +8,6 @@ import android.widget.TextView
 
 import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.bean.DjRecommend
-import com.example.wangbo.ourapp.bean.HostStationBean
 import com.jackmar.jframelibray.utils.GlideImageLoadUtil
 
 import butterknife.BindView

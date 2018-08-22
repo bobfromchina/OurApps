@@ -14,10 +14,37 @@ import com.example.wangbo.ourapp.R;
  */
 public class OurAnimation {
 
+    /**
+     * top
+     */
     public static void runLayoutAnimation(final RecyclerView recylerView) {
         final Context context = recylerView.getContext();
         final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(context
                 , R.anim.layout_animation_fall_down);
+        recylerView.setLayoutAnimation(controller);
+        recylerView.getAdapter().notifyDataSetChanged();
+        recylerView.scheduleLayoutAnimation();
+    }
+
+    /**
+     * bottom
+     */
+    public static void runLayoutAnimationFromBottom(final RecyclerView recylerView) {
+        final Context context = recylerView.getContext();
+        final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(context
+                , R.anim.layout_animation_from_bottom);
+        recylerView.setLayoutAnimation(controller);
+        recylerView.getAdapter().notifyDataSetChanged();
+        recylerView.scheduleLayoutAnimation();
+    }
+
+    /**
+     * right
+     */
+    public static void runLayoutAnimationFromRight(final RecyclerView recylerView) {
+        final Context context = recylerView.getContext();
+        final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(context
+                , R.anim.layout_animation_slide_right);
         recylerView.setLayoutAnimation(controller);
         recylerView.getAdapter().notifyDataSetChanged();
         recylerView.scheduleLayoutAnimation();

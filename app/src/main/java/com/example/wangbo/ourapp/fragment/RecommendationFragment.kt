@@ -94,10 +94,10 @@ class RecommendationFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListe
         getBannerInfo()
 
         val bean = UserManager.getInstance().user
-        if (bean.music != null)
-            commentMusicListAdapter.setData(bean.music)
         if (bean.banner != null)
             loadBanner(bean.banner)
+        if (bean.music != null)
+            commentMusicListAdapter.setData(bean.music)
     }
 
     private fun getBannerInfo() {
@@ -122,8 +122,8 @@ class RecommendationFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListe
     private fun initBanner() {
         banner.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
         banner.setPageIndicator(intArrayOf(R.drawable.banner_page_indicator_ponit_uncheck, R.drawable.banner_page_indicator_point_checked))
-        banner.startTurning(5000)//5秒一翻页
-        banner.isCanLoop = true//无限循环
+        banner.startTurning(5000)
+        banner.isCanLoop = true
     }
 
     override fun initData() {

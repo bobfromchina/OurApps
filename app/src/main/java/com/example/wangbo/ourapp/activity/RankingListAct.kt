@@ -13,6 +13,7 @@ import com.jackmar.jframelibray.base.JBaseAct
 import java.util.ArrayList
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.utils.OurAnimation
 
 /**
  * Created by wangbo on 2018/8/15.
@@ -52,6 +53,7 @@ class RankingListAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<Ran
         val mGridLayoutManager = GridLayoutManager(context, 3)
         commonList.layoutManager = mGridLayoutManager
         commonList.adapter = rankingListAdapter
+        OurAnimation.runLayoutAnimationFromBottom(commonList)
 
         rankingListAdapter.setOnItemClickedListener(this)
     }

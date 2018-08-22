@@ -8,6 +8,7 @@ import com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter
 import com.example.wangbo.ourapp.bean.NewsBean
 import com.example.wangbo.ourapp.http.HttpHelper
 import com.example.wangbo.ourapp.manager.UserManager
+import com.example.wangbo.ourapp.utils.OurAnimation
 import com.jackmar.jframelibray.base.JBaseAct
 import com.jackmar.jframelibray.http.subscriber.IOnNextListener
 import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
@@ -42,6 +43,10 @@ class MineNewsAct : JBaseAct() {
     }
 
     private fun getPageData() {
-        HttpHelper.getInstance(context).mineNewList(1, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<List<NewsBean>> { bean -> adapter.setData(bean) }))
+        HttpHelper.getInstance(context).mineNewList(1, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<List<NewsBean>>
+        { bean ->
+            adapter.setData(bean)
+            OurAnimation.runLayoutAnimationFromRight(list)
+        }))
     }
 }

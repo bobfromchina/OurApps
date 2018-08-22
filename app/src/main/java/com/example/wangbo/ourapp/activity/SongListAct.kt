@@ -14,6 +14,7 @@ import com.jackmar.jframelibray.http.subscriber.IOnNextListener
 import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.utils.OurAnimation
 
 /**
  * Created by wangbo on 2018/8/15.
@@ -43,7 +44,8 @@ class SongListAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<SongLi
     }
 
     override fun initData() {
-        HttpHelper.getInstance(context).songlist("1", ProgressSubscriber(context, IOnNextListener<List<SongListBean>> { bean -> songlistAdapter.setData(bean) }))
+        HttpHelper.getInstance(context).songlist("1", ProgressSubscriber(context, IOnNextListener<List<SongListBean>> { bean -> songlistAdapter.setData(bean)
+            OurAnimation.runLayoutAnimationFromBottom(commonList)}))
     }
 
     override fun onClicked(position: Int, songListBean: SongListBean) {

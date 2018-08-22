@@ -128,12 +128,12 @@ class ThreeFragment : PLEFragment(), RecyclerListAdapter.OnItemClickedListener<T
             }
 
             HttpHelper.getInstance(context).validePwd(pwd.text, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<String> {
-                fun onNext(o: Any) {
+                //fun onNext(o: Any) {
                     alertDialog.dismiss()
                     val intent = Intent(context, NoteBookDetailsAct::class.java)
                     intent.putExtra(NoteBookDetailsAct.EXTRA_DATA_BASE, threeBean)
                     startActivityForResult(intent, 10000)
-                }
+                //}
             }))
         })
 
