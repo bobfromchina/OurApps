@@ -1,20 +1,24 @@
 # OurApps
 
+开发环境 ：AS 3.0
+开发语言：kotlin + java (基础类为java原生，View层为kotlin)
+框架：butterknife Retrofit+RxJava+RxAndroid v-layout gilde
+主要功能：
+ 1 仿网易新闻版块
+ 2 仿网易云音乐版块
+ 3 记事本
+ 4 天气预报
+
+用到的jar包：
  compile fileTree(include: ['*.jar'], dir: 'libs')
 
     //网页解析
     compile 'org.jsoup:jsoup:1.10.2'
-
-    // 架包支持
-    compile "com.android.support:palette-v7:$SUPPORT_LIBRARY_VERSION"
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //注解框架
     compile 'com.jakewharton:butterknife:8.8.1'
-//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     kapt "com.jakewharton:butterknife-compiler:8.8.1"
-
 
     compile 'com.aliyun.dpa:oss-android-sdk:2.3.0'
 
