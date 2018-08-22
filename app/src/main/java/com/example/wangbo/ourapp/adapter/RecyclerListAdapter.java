@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 
 
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder;
 import com.example.wangbo.ourapp.utils.ArrayUtils;
 import com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter;
 

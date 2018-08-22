@@ -23,10 +23,8 @@ public class CommentSoongsBean  implements Parcelable{
     private String musicName;
     private List<String> alias;
 
-
     public CommentSoongsBean() {
     }
-
 
     public CommentSoongsBean(String albumName, String albumCompany, String artId, String artName, String albumSubType, String musicId, String albumPic, String musicName, List<String> alias) {
         this.albumName = albumName;

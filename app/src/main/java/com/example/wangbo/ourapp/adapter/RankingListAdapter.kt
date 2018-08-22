@@ -11,6 +11,7 @@ import com.jackmar.jframelibray.utils.GlideImageLoadUtil
 import com.jackmar.jframelibray.utils.HeightFollowWidthImageView
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder
 
 /**
  * Created by wangbo on 2018/8/15.

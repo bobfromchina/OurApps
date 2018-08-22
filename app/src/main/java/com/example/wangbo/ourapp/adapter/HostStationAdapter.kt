@@ -12,6 +12,7 @@ import com.example.wangbo.ourapp.bean.HostStationBean
 import com.jackmar.jframelibray.utils.GlideImageLoadUtil
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder
 
 /**
  * Created by wangbo on 2018/8/1.

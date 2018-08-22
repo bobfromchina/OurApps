@@ -1,4 +1,4 @@
-package com.example.wangbo.ourapp.adapter;
+package com.example.wangbo.ourapp.base;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

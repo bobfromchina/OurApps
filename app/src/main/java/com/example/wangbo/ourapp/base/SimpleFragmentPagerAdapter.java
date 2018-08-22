@@ -1,4 +1,4 @@
-package com.example.wangbo.ourapp.adapter;
+package com.example.wangbo.ourapp.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

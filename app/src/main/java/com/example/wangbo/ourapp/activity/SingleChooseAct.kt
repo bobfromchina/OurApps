@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.example.wangbo.ourapp.R
-import com.example.wangbo.ourapp.adapter.BaseRecyclerViewHolder
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder
 import com.example.wangbo.ourapp.adapter.RecyclerListAdapter
 import com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter
 import com.jackmar.jframelibray.base.JBaseAct

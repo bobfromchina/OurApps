@@ -21,7 +21,7 @@ import com.example.wangbo.ourapp.activity.LoginAct
 import com.example.wangbo.ourapp.activity.MineNewsAct
 import com.example.wangbo.ourapp.activity.VLayoutAct
 import com.example.wangbo.ourapp.activity.WeatherAct
-import com.example.wangbo.ourapp.adapter.IndicatorPagerAdapter
+import com.example.wangbo.ourapp.base.IndicatorPagerAdapter
 import com.example.wangbo.ourapp.adapter.RecyclerListAdapter
 import com.example.wangbo.ourapp.bean.OneHeaderBean
 import com.example.wangbo.ourapp.bean.PersonInfo

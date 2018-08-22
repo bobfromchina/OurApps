@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wangbo.ourapp.R;
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder;
 import com.example.wangbo.ourapp.bean.HotMealsBean;
 import com.example.wangbo.ourapp.utils.FlowLayout;
 import com.example.wangbo.ourapp.utils.ViewUtils;

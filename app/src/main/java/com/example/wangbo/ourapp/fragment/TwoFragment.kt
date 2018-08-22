@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 
 import com.example.wangbo.ourapp.R
-import com.example.wangbo.ourapp.adapter.IndicatorPagerAdapter
+import com.example.wangbo.ourapp.base.IndicatorPagerAdapter
 import com.example.wangbo.ourapp.utils.CommonUtils
 import com.example.wangbo.ourapp.utils.PagerSlidingTabStrip
 import com.example.wangbo.ourapp.utils.UpDownTextView

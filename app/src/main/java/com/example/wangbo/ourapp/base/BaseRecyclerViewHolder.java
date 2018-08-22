@@ -1,4 +1,4 @@
-package com.example.wangbo.ourapp.adapter;
+package com.example.wangbo.ourapp.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

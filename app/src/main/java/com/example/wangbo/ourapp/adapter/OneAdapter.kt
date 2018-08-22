@@ -14,6 +14,7 @@ import com.example.wangbo.ourapp.bean.NewsBean
 import com.jackmar.jframelibray.utils.GlideImageLoadUtil
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder
 
 /**
  * Created by wangbo on 2018/7/21.

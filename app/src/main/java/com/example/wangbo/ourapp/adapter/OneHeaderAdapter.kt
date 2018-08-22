@@ -9,6 +9,7 @@ import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.bean.OneHeaderBean
 
 import butterknife.BindView
+import com.example.wangbo.ourapp.base.BaseRecyclerViewHolder
 
 /**
  * Created by wangbo on 2018/8/2.
