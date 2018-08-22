@@ -1,0 +1,78 @@
+package com.lovely3x.jsonparser.parser;
+
+import com.lovely3x.jsonparser.Config;
+import com.lovely3x.jsonparser.model.JSONPairFactory;
+import com.lovely3x.jsonparser.model.JSONPairFactoryImpl;
+import com.lovely3x.jsonparser.model.JSONValue;
+import com.lovely3x.jsonparser.source.JSONSource;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by lovely3x on 15-6-29.
+ * json数组解析器
+ */
+public class JSONArrayParser implements ParseExecutorCallback {
+    private static final String TAG = "JSONArrayParser";
+    /**
+     * 解析结果集合
+     */
+    private ArrayList<JSONValue> mValues;
+
+    /**
+     * 数据源
+     */
+    private final JSONSource mSource;
+    /**
+     * 键值对工厂
+     */
+    private final JSONPairFactory mFactory;
+
+    /**
+     * 通过默认的json工厂和指定的数据源创建一个JsonArray解析器
+     *
+     * @param source 数据源
+     */
+    public JSONArrayParser(Config config,JSONSource source) {
+        this(source, new JSONPairFactoryImpl(config));
+    }
+
+    /**
+     * 通过指定的json工厂和指定的数据源创建一个JsonArray解析器
+     *
+     * @param source  数据源
+     * @param factory 键值对工厂
+     */
+    public JSONArrayParser(JSONSource source, JSONPairFactory factory) {
+        this.mSource = source;
+        this.mFactory = factory;
+        this.mValues = new ArrayList<>();
+    }
+
+    /**
+     * 讲指定的数据源解析为JSONValue集合
+     *
+     * @return 解析完成的jsonValue集合
+     */
+    public List<JSONValue> parse() {
+        parseJSONArray(mSource);
+        return mValues;
+    }
+
+    /**
+     * 解析json array
+     *
+     * @param source
+     */
+    private void parseJSONArray(JSONSource source) {
+        new JSONArrayParseExecutor().parse(source, this);
+    }
+
+    @Override
+    public void onParsed(String currentStatement) {
+        if (mFactory != null) {
+            mValues.add(mFactory.getJSONValue(currentStatement));
+        }
+    }
+}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/edit_pic"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.wangbo.ourapp.utils.FontTextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="心情"
+            android:visibility="gone"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#10000000"
+                android:gravity="center_vertical"
+                android:hint="Please enter your title..."
+                android:lineSpacingMultiplier="1.1"
+                android:minHeight="45dp"
+                android:padding="10dp"
+                android:textColorHint="@color/colorSubtitle"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#11000000"
+                android:gravity="start"
+                android:hint="Record your happy moments..."
+                android:lineSpacingMultiplier="1.1"
+                android:padding="10dp"
+                android:textColorHint="@color/colorSubtitle"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_save"
+            android:gravity="center"
+            android:text="delete"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/wangyi_red"
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_save"
+            android:gravity="center"
+            android:text="save"
+            android:textColor="@color/wangyi_red"
+            android:textSize="13sp" />
+
+        <com.example.wangbo.ourapp.utils.FontTextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="07-31 14:00"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

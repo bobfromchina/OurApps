@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+    defaultConfig {
+        applicationId APP_PACKAGE
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSIO
+        versionCode APP_VERSION
+        versionName APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            zipAlignEnabled true
+        }
+
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+//        debug {
+//            storeFile file("xzd.jks")
+//            storePassword 'xzd8888'
+//            keyAlias 'xzd'
+//            keyPassword 'xzd8888'
+//        }
+//
+//        release {
+//            storeFile file('xzd.jks')
+//            storePassword 'xzd8888'
+//            keyAlias 'xzd'
+//            keyPassword 'xzd8888'
+//        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    //网页解析
+    compile 'org.jsoup:jsoup:1.10.2'
+
+    // 架包支持
+    compile "com.android.support:palette-v7:$SUPPORT_LIBRARY_VERSION"
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //注解框架
+    compile 'com.jakewharton:butterknife:8.8.1'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    kapt "com.jakewharton:butterknife-compiler:8.8.1"
+
+
+    compile 'com.aliyun.dpa:oss-android-sdk:2.3.0'
+
+    compile project(':jframelibray')
+
+    compile project(':refresh-header')
+
+    compile project(':refresh-layout')
+
+    //仿照IOS的弹窗效果
+    compile project(':action-sheet-library')
+
+    //添加通用库
+//    compile project(':common-core')
+
+    //pager 指示器
+//    compile project(':indicator-library')
+
+    compile('com.alibaba.android:vlayout:1.0.4@aar') {
+        transitive = true
+    }
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}

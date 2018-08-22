@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/wangyi_red" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wangyi_red"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/titlebar_music_prs" />
+        <RelativeLayout
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_view_header_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.wangbo.ourapp.utils.UpDownTextView
+                android:id="@+id/search_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:text="大家都在搜 友谊之光"
+                android:textColor="#90FFFFFF"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_activity_paid_task_details_9"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@color/wangyi_red"
+        android:gravity="center">
+
+        <!--指示器-->
+        <com.example.wangbo.ourapp.utils.PagerSlidingTabStrip
+            android:id="@+id/siv_activity_task_details_indicator"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:fillViewport="false" />
+
+    </FrameLayout>
+
+    <!-- 页面加载 -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_activity_task_details_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_bg" />
+
+</LinearLayout>

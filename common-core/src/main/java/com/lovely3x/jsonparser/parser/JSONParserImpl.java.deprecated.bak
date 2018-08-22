@@ -1,0 +1,89 @@
+package com.lovely3x.jsonparser.parser;
+
+import com.lovely3x.jsonparser.JSONType;
+import com.lovely3x.jsonparser.model.JSONKey;
+import com.lovely3x.jsonparser.model.JSONPairFactory;
+import com.lovely3x.jsonparser.model.JSONPairFactoryImpl;
+import com.lovely3x.jsonparser.model.JSONValue;
+import com.lovely3x.jsonparser.source.JSONSource;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * json 解析器
+ * Created by lovely3x on 15-6-29.
+ */
+public class JSONParserImpl implements JSONParser {
+
+    public static final String TAG = "JSONParserImpl";
+
+
+    /**
+     * 数据源
+     */
+    protected final JSONSource mSource;
+
+
+    /**
+     * 键值对工厂
+     */
+    protected JSONPairFactory mPairFactory;
+
+    /**
+     * 保存键值对
+     */
+    protected HashMap<JSONKey, JSONValue> pairs = new HashMap<>();
+
+
+    /**
+     * 创建接送解析器,使用指定的键值对工厂
+     *
+     * @param pairFactory 键值对工厂
+     */
+    public JSONParserImpl(JSONSource source, JSONPairFactory pairFactory) {
+        this.mPairFactory = pairFactory;
+        this.mSource = source;
+    }
+
+    public JSONParserImpl(JSONSource source) {
+        this(source, new JSONPairFactoryImpl());
+    }
+
+    /**
+     * 猜测这个指定的json串的类型
+     *
+     * @return
+     */
+    public int guessType() {
+        int checkResult = check(mSource.input());
+        return checkResult;
+    }
+
+
+    /**
+     * 检查数json据源的最外围类型
+     *
+     * @param string
+     * @return 数据源的类型
+     */
+    private int check(String string) {
+        if (string.startsWith("[") && string.endsWith("]")) {//guess is a json array
+            return JSONType.JSON_TYPE_ARRAY;
+        } else if (string.endsWith("{") && string.endsWith("}")) {//guess is a json object
+            return JSONType.JSON_TYPE_OBJECT;
+        }
+        return JSONType.JSON_TYPE_INVALIDATE;
+    }
+
+    @Override
+    public List<JSONValue> parseJSONArray() {
+        return new JSONArrayParser(mSource, mPairFactory).parse();
+    }
+
+    @Override
+    public Map<JSONKey, JSONValue> parseJSONObject() {
+        return new JSONObjectParser(mSource, mPairFactory).parse();
+    }
+}

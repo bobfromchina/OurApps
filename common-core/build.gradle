@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+
+android {
+    buildToolsVersion BUILD_TOOL_VERSION;
+    compileSdkVersion COMPILE_SDK_VERSION
+
+    lintOptions {
+        abortOnError false
+        disable "ResourceType"
+    }
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION
+
+        buildConfigField "String", "LOGIN_INTENT_ACTION", "\"$LOGIN_ACTION\""
+        buildConfigField "String", "BIND_PHONE_ACTION", "\"$BIND_PHONE_ACTION\""
+
+        buildConfigField "String", "SERVER_HOST_ACCESSIBILITY_CHANGED_ACTION", "\"$SERVER_HOST_ACCESSIBILITY_CHANGED\""
+        buildConfigField "String", "SERVER_HOST_AND_PORT_ACCESSIBILITY_CHANGED_ACTION", "\"$SERVER_HOST_AND_PORT_ACCESSIBILITY_CHANGED\""
+
+        //微信AppId
+        buildConfigField "String", "WX_APP_ID", "\"$WX_APP_KEY\""
+        //微信安全码
+        buildConfigField "String", "WX_APP_SECRET", "\"$WX_SECRET\""
+        //API key
+        buildConfigField "String", "WX_API_KEY", "\"$WX_API_KEY\""
+        //微信商户号
+        buildConfigField "String", "WX_PID", "\"$WX_PID\""
+
+        //支付宝 支付
+        buildConfigField "String", "ALIPAY_PARTNER", "\"$ALIPAY_PARTNER\"";
+        //商户PID 类似于 2088221846523250
+        buildConfigField "String", "ALIPAY_SELLER", "\"$ALIPAY_SELLER\"";
+        //商户收款账号 类似于 admin@dottp.com
+        buildConfigField "String", "ALIPAY_RSA_PRIVATE", "\"$ALIPAY_RSA_PRIVATE\"";//商户私钥，pkcs8格式
+        buildConfigField "String", "ALIPAY_NOTIFY_URL", "\"$ALIPAY_NOTIFY_URL\""; //支付结果回调地址
+        buildConfigField "String", "ALIPAY_APPID", "\"$ALIPAY_APPID\""; //支付appid
+        buildConfigField "String", "UNIPAY_RSA_MODULUS", "\"$UNIPAY_RSA_MODULUS\""; //银联rsa对数
+//        buildConfigField "String", "CHANNEL_NAME", "\"$CHANNEL_NAME\""; //渠道的名字
+
+        //百度支付
+        buildConfigField "String", "BAIDU_NOTIFY_URL", "\"$BAIDU_NOTIFY_URL\""; //百度支付的回调地址
+
+        //使用指定的高德地图api key来替换申明的高德地图中的占位
+        //使用指定的登陆action来替换申明的登录action
+        manifestPlaceholders = [AMAP_API_KEY: AMAP_API_KEY, LOGIN_ACTION: LOGIN_ACTION, APPLICATION_ID: APP_PACKAGE, BIND_PHONE_ACTION: BIND_PHONE_ACTION]
+
+        multiDexEnabled MULTI_DEX
+    }
+    buildToolsVersion '26.0.2'
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    //recycler view 分割线工具包
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    //    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
+
+    compile 'com.squareup.okio:okio:1.4.0'
+
+    //butter
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    //线程处理
+    compile project(':EventBus-core')
+
+    //本地数据库
+    compile project(':liteorm-core')
+
+
+    provided files('compileLibs/AnnoProcesser.jar')
+
+    testCompile 'junit:junit:4.12'
+
+    //LRU磁盘缓存
+    compile "com.jakewharton:disklrucache:$DISK_LRU_CACHE_VERSION"
+
+    //滑动返回
+    compile project(':swipe-back-library')
+
+    //google的相机库
+    compile project(':google_camera_view_library')
+
+    //图片裁切库
+    compile project(':AndroidImageCropper')
+}
+

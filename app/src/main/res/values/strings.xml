@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">OurApp</string>
+
+    <string name="OrganizName">体检机构：%1$s</string>
+    <string name="MealOriginalPrice">原价：%1$s元</string>
+    <string name="ComboCount">含%1$s项体检</string>
+    <string name="yuan">%1$s元</string>
+    <string name="linear_layout_manager">android.support.v7.widget.LinearLayoutManager</string>
+    <string name="forgot_password">忘记密码？</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="please_input_phone_number">请输入手机号</string>
+    <string name="not_account_register_now">注册</string>
+    <string name="login_by_pwd">登录</string>
+    <string name="hint_back_book">非常感谢你的到来，我们有什么做的不好的地方，请在这里给我们反馈，谢谢！</string>
+    <string name="hint_back_book_info">请输入你的联系方式</string>
+    <string name="submit">提交</string>
+    <string name="two_oo_zi">%1$s/140</string>
+    <string name="please_complate_info">请完善信息，谢谢！</string>
+    <string name="ponitPonit">""</string>
+    <string name="head">头像</string>
+    <string name="nickname">昵称</string>
+    <string name="sex">性别</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="save">保存</string>
+</resources>

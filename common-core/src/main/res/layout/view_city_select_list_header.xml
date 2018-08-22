@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDEDED"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_view_city_select_list_item_search"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_city_search_input"
+        android:gravity="center"
+        android:hint="@string/search"
+        android:textColor="@color/dark_black"
+        android:textColorHint="@color/font_light_gray"
+        android:textCursorDrawable="@null" />
+
+    <TextView
+        android:id="@+id/tv_view_news_item_comment_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7F7F7"
+        android:padding="10dp"
+        android:text="@string/current_city"
+        android:textColor="#343434" />
+
+    <CheckedTextView
+        android:id="@+id/tv_view_city_select_list_header_current_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cbx_city_item_selector"
+        android:checked="true"
+        android:drawableLeft="@drawable/icon_location"
+        android:drawablePadding="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:text="@string/in_the_location"
+        android:textColor="@color/color_city_item_selector" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7F7F7"
+        android:padding="10dp"
+        android:text="@string/hot_cities"
+        android:textColor="#343434" />
+
+    <com.lovely3x.common.widgets.EnoughHeightGridView
+        android:id="@+id/grid_vity_select_list_header_hot_cities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:numColumns="3"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp" />
+
+</LinearLayout>

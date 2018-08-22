@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbarStyle="insideInset"
+    android:scrollbars="none">
+
+    <!--<include layout="@layout/view_header_music" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="38dp"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:text="歌单推荐"-->
+    <!--android:textSize="14sp" />-->
+
+    <com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter
+        android:id="@+id/gv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="3dp" />
+
+
+</LinearLayout>

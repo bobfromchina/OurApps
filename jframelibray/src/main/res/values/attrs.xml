@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 顶部导航栏JTitleView标题模板自定义属性 -->
+    <declare-styleable name="JTitleView">
+        <!--所有文字大小-->
+        <attr name="textSize" format="dimension" />
+        <!--右侧文字大小-->
+        <attr name="moreTextSize" format="dimension" />
+        <!--背景色-->
+        <attr name="background" format="reference" />
+        <!--所有文字颜色-->
+        <attr name="textcolor" format="color" />
+        <!--右侧文字颜色-->
+        <attr name="moreTextcolor" format="color" />
+        <!--返回图标-->
+        <attr name="backImage" format="reference" />
+        <!-- 标题文案 -->
+        <attr name="titleText" format="string" />
+        <!-- 是否有back按钮 -->
+        <attr name="canBack" format="boolean" />
+        <!-- back按钮文案 -->
+        <attr name="backText" format="string" />
+        <!-- 右侧更多功能按钮图片 -->
+        <attr name="moreImg" format="reference" />
+        <!-- 右侧更多功能按钮文字 -->
+        <attr name="moreText" format="string" />
+        <!--填充View的颜色-->
+        <attr name="fakeColor" format="color" />
+        <!--底部分割线颜色-->
+        <attr name="bottomcolor" format="color" />
+        <!--底部分割线资源-->
+        <attr name="bottomres" format="reference" />
+        <!--底部线高度-->
+        <attr name="bottomlineheight" format="dimension" />
+    </declare-styleable>
+
+    <!--圆形图片显示组件-->
+    <attr name="borderRadius" format="dimension" />
+
+    <attr name="Type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="Type" />
+    </declare-styleable>
+
+
+    <!--日历-->
+    <attr name="cbd_calendar_row" format="integer" />
+
+    <declare-styleable name="CalendarDateView">
+        <attr name="cbd_calendar_row" />
+    </declare-styleable>
+
+    <!--图片裁剪控件-->
+    <declare-styleable name="ClipSquareImageView">
+        <attr name="ClipSquareIV_BorderDistance" format="dimension" />
+        <attr name="ClipSquareIV_BorderWidth" format="dimension" />
+        <attr name="ClipSquareIV_BorderColor" format="color" />
+        <attr name="ClipSquareIV_OutsideColor" format="color" />
+    </declare-styleable>
+
+</resources>

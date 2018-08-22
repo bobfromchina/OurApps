@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/margin_left_two_tv"
+                android:text="@string/head" />
+
+            <com.example.wangbo.ourapp.utils.RoundedImageView
+                android:id="@+id/img_head"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_default_header_holder_square"
+                app:riv_oval="true" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line_margin_left_ten_dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/margin_left_two_tv"
+                android:text="@string/nickname" />
+
+            <EditText
+                android:id="@+id/tv_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:gravity="end"
+                android:maxLines="1"
+                android:textColor="@color/auxiliary_text_bg"
+                android:textSize="@dimen/small_text" />
+
+        </LinearLayout>
+
+        <View style="@style/view_line_margin_left_ten_dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_sex"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                style="@style/margin_left_two_tv"
+                android:text="@string/sex" />
+
+            <TextView
+                android:id="@+id/tv_sex"
+                style="@style/tv_right_margin_two" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

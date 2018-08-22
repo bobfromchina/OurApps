@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EDEDED">
+
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/slh_activity_city_select_citys"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/divider_color"
+        android:dividerHeight="0.1dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <com.lovely3x.common.widgets.sidebar.SideBar
+        android:id="@+id/sb_activity_city_select_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:id="@+id/tv_activity_city_select_pop"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_slid_pop"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="#FFF"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+</FrameLayout>

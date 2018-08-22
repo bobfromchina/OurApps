@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/input_box">
+
+        <EditText
+            android:id="@+id/et_back_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/hint_back_book"
+            android:lineSpacingMultiplier="1.1"
+            android:maxLength="140"
+            android:padding="10dp"
+            android:textColorHint="@color/auxiliary_text_bg"
+            android:textSize="@dimen/small_text" />
+
+        <TextView
+            android:id="@+id/remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="0/140"
+            android:textColor="@color/auxiliary_text_bg"
+            android:textSize="@dimen/small_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/input_box">
+
+        <EditText
+            android:id="@+id/phone_or_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:hint="@string/hint_back_book_info"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:textColorHint="@color/auxiliary_text_bg"
+            android:textSize="@dimen/small_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/submit_book_buffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/blue_ten_bg"
+            android:gravity="center"
+            android:padding="13dp"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mid_small_text" />
+
+    </RelativeLayout>
+
+</LinearLayout>

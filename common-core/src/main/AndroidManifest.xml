@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.lovely3x.common">
+
+    <!-- 读写文件，ImageLoader 且前后台切换权限-->
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- ImageLoader和版本更新需要用到-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 读写文件，ImageLoader 和版本更新需要用到-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!-- 读写文件，ImageLoader 和版本更新需要用到-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 网络状态监控需要用到-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 相机服务-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+                 android:label="@string/app_name"
+                 tools:replace="android:label">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${APPLICATION_ID}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${AMAP_API_KEY}"/>
+
+        <!-- 图片列表界面-->
+        <activity
+            android:name=".image.picker.ImagePickerListActivity"
+            android:process=".img_load_process"/>
+        <!-- 图片格子界面-->
+        <activity
+            android:name=".image.picker.ImagePickerGridDetailActivity"
+            android:process=".img_load_process"/>
+        <!-- 相机界面-->
+        <activity
+            android:name=".image.camera.CameraActivity"
+            android:theme="@style/ImageDisplayTheme"/>
+        <!-- 图片擦裁切界面-->
+        <activity
+            android:name=".image.crop.CropImageActivity"/>
+        <!-- 图片展示界面-->
+        <activity
+            android:name=".image.displayer.ImagesDisplyerActivity"/>
+
+        <!-- 版本控制服务-->
+        <service android:name=".versioncontroller.impls.VersionControllerManagerService"/>
+
+        <!-- 点击安装的界面 -->
+        <activity android:name=".versioncontroller.impls.ClickNotificationToInstallActivity"/>
+
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService"/>
+
+        <!--图片裁切库-->
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
+
+        <!--相机拍照-->
+        <activity
+            android:name=".image.camera.CameraActivity2"
+            android:theme="@style/TransparentStatusBar"/>
+
+        <!--网络连接变化监听器-->
+        <receiver android:name=".utils.ConnectivityReceiver">
+            <intent-filter>
+                <!--网络连通性变化-->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <!--与服务器主机的连通性变化-->
+                <action android:name="com.langruisi.sevenstar.host.accessibility.changed.action"/>
+                <!--与服务器和服务器端口的连通性变化-->
+                <action android:name="com.langruisi.sevenstar.host.port.accessibility.changed.action"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

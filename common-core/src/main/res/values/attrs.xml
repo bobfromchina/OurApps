@@ -1,0 +1,140 @@
+<resources>
+
+    <!--EAV-->
+    <declare-styleable name="EasyAdapterView">
+
+        <!--重力方向-->
+        <attr name="orientation" format="enum">
+            <!--垂直-->
+            <enum name="vertical" value="1" />
+            <!--水平-->
+            <enum name="horizontal" value="2" />
+        </attr>
+
+        <!--视图模式-->
+        <attr name="mode" format="enum">
+            <!--传统的ListView模式-->
+            <enum name="listView" value="1" />
+            <!--无尽listView模式-->
+            <enum name="endLessListView" value="2" />
+            <!--滚轮模式-->
+            <enum name="wheelView" value="3" />
+            <!--无尽滚轮模式-->
+            <enum name="endLessWheelView" value="4" />
+        </attr>
+
+        <!--&lt;!&ndash;分割线高度&ndash;&gt;-->
+        <!--<attr name="dividerHeight" format="dimension" />-->
+
+        <!--&lt;!&ndash;分割线对象&ndash;&gt;-->
+        <!--<attr name="divider" format="reference" />-->
+
+
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_mutate_background" format="boolean" />
+        <attr name="riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgress">
+        <attr name="color1" format="reference|color" />
+        <attr name="color2" format="reference|color" />
+        <attr name="color3" format="reference|color" />
+    </declare-styleable>
+
+    <!-- CircularProgressBar -->
+    <declare-styleable name="CircularProgressBar">
+        <attr name="cpbStyle" format="reference" />
+        <attr name="cpb_color" format="color" />
+        <attr name="cpb_colors" format="reference" />
+        <attr name="cpb_stroke_width" format="dimension" />
+        <attr name="cpb_min_sweep_angle" format="integer" />
+        <attr name="cpb_max_sweep_angle" format="integer" />
+        <attr name="cpb_sweep_speed" format="float" />
+        <attr name="cpb_rotation_speed" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="SubsamplingScaleImageView">
+        <attr name="src" format="reference" />
+        <attr name="assetName" format="string" />
+        <attr name="panEnabled" format="boolean" />
+        <attr name="zoomEnabled" format="boolean" />
+        <attr name="quickScaleEnabled" format="boolean" />
+        <attr name="tileBackgroundColor" format="color" />
+    </declare-styleable>
+
+
+    <!-- 'header停留listview'的属性 -->
+    <declare-styleable name="StickyListHeadersListView">
+
+        <!-- View attributes -->
+        <attr name="android:clipToPadding" />
+        <attr name="android:scrollbars" />
+        <attr name="android:overScrollMode" />
+        <attr name="android:padding" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingBottom" />
+
+        <!-- ListView attributes -->
+        <attr name="android:fadingEdgeLength" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:cacheColorHint" />
+        <attr name="android:choiceMode" />
+        <attr name="android:drawSelectorOnTop" />
+        <attr name="android:fastScrollEnabled" />
+        <attr name="android:fastScrollAlwaysVisible" />
+        <attr name="android:listSelector" />
+        <attr name="android:scrollingCache" />
+        <attr name="android:scrollbarStyle" />
+        <attr name="android:divider" />
+        <attr name="android:dividerHeight" />
+        <attr name="android:transcriptMode" />
+
+        <!-- StickyListHeaders attributes -->
+        <attr name="hasStickyHeaders" format="boolean" />
+        <attr name="isDrawingListUnderStickyHeader" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchEditText">
+        <attr name="tipColor" format="color" />
+        <attr name="tipText" format="string" />
+        <attr name="tipPadding" format="reference|dimension" />
+        <attr name="tipTextSize" format="reference|dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckPointView">
+        <attr name="shapeColor" format="color" />
+        <attr name="roundBackgroundColor" format="color" />
+        <attr name="checkedRoundBackgroundColor" format="color" />
+        <attr name="isChecked" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RedPoint">
+        <attr name="color" /><!--
+        <attr name="textColor"  format="color"/>
+        <attr name="text"  format="string"/>
+        <attr name="textSize" format="dimension"/>-->
+    </declare-styleable>
+
+
+
+
+    <declare-styleable name="SelectableRoundedImageView">
+        <attr name="sriv_left_top_corner_radius" format="dimension" />
+        <attr name="sriv_right_top_corner_radius" format="dimension" />
+        <attr name="sriv_left_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_right_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_border_width" format="dimension" />
+        <attr name="sriv_border_color" format="color" />
+        <attr name="sriv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+</resources>

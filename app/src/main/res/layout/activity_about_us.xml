@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <com.example.wangbo.ourapp.utils.RoundedImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_nav_bg_drawerlayout"
+            app:riv_corner_radius="5dp"
+            app:riv_oval="false" />
+
+        <TextView
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"
+            android:text="1.0.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/show_share"
+        android:text="关于我们:\n\n
+
+        很高兴你能看到这个app。\n\n
+
+        最开始这个app的设计仅仅是为了学习一些的新的知识，把自己所见到的感觉有兴趣的东西都集成到里面，由于喜欢网易的风格，于是借鉴了网易新闻的首页和网易云音乐的首页，其次自己写了一些小功能，记事本和天气预报。\n\n
+
+        如果你也喜欢这个app，就给我点赞吧！"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

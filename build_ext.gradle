@@ -1,0 +1,218 @@
+allprojects {
+    ext {
+        APP_VERSION = 1
+        APP_VERSION_NAME = '1.0.1'
+        APP_PACKAGE = "com.example.wangbo.ourapp"
+
+        //支持的最低版本
+        MIN_SDK_VERSION = 16
+        //目标版本
+        TARGET_SDK_VERSIO = 26
+        //编译版本
+        COMPILE_SDK_VERSION = 26
+        //编译工具版本
+        BUILD_TOOL_VERSION = '26.0.2'
+        //支持包的版本
+        SUPPORT_LIBRARY_VERSION = '26.0.1'
+        //模糊的版本
+        DALI_BLUR_VERSION = '0.3.4'
+        //FAST_JSON
+        FAST_JSON_VERSION = '1.1.56.android'
+        //glide 版本
+        VERSION_GLIDE = '3.7.0'
+        //磁盘LRU缓存库版本
+        DISK_LRU_CACHE_VERSION = '2.0.2'
+
+        MULTI_DEX = true
+
+        //登录的Intent action
+        //申明这个action的被认为是登录界面
+        LOGIN_ACTION = "$APP_PACKAGE" + ".login.action"
+
+        BIND_PHONE_ACTION = "$APP_PACKAGE" + ".bind.phone.action"
+
+        //服务器连通性变化action
+        SERVER_HOST_ACCESSIBILITY_CHANGED = "$APP_PACKAGE" + ".host.accessibility.changed.action"
+
+        //服务器和端口变化action
+        SERVER_HOST_AND_PORT_ACCESSIBILITY_CHANGED = "$APP_PACKAGE" + ".host.port.accessibility.changed.action"
+
+        /*==============================各种sdk的配置开始======================================================================*/
+        //环信账户配置
+        EASEMOB_APPKEY = '1120170512115497#colorful'
+
+        //百度地图配置
+        BAIDY_API_KEY = ''
+
+        //高德地图配置  已替换
+        AMAP_API_KEY = 'afa476c6274cd284c5d9600e21472991'
+
+        //友盟的app key
+        UMENG_APP_KEY = '59156a5c3eae256b56000508'
+
+        //配置微信时需要注意,还需要在项目的包名下添加一个wxapi包,具体的查看文档
+        //微信的app key
+        WX_APP_KEY = 'wx28ba07f7bed69b6a'
+
+        //微信的app secret
+        WX_SECRET = 'ca9299fc0d18189c1520511a8f7b4a56'
+
+        //微信api key （如果需要微信支付，则需要填写）
+        WX_API_KEY = '50ff458ae2e25290ce526ee01893af96'
+
+        //微信商户平台 商户号(如果使用微信支付,需要填写)
+        WX_PID = "1483268122";
+
+        //支付宝配置
+        ALIPAY_APPID = '2017061307478806'//支付宝的appid
+
+        ALIPAY_PARTNER = '2088721013456300'//商户PID
+
+        ALIPAY_SELLER = 'colorful@colorfulflorist.com'//商户收款账号
+
+        //商户私钥，pkcs8 格式
+        ALIPAY_RSA_PRIVATE = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBANG5Whu+/LaWEp6stFpYZ9Br0zxPcwQr8xHLR0Rj0xKhYajMXFAbM3SJ1kuQ5QEF4uwJoX2nhzHShgEvxeMTI/Kxw6L9mq3UF/SAYeFtoMXsu0ZONGN1qPgNO94OiIFLYeePCg+Rpd7ufe7kbRxRwHuwNc3TiRiyx2qolcNpFCnNAgMBAAECgYB0vgmjwkeoV5ebziVC2U1InoziWJN8sf5HXHGaZzr6du0G6mNEkC+vYn7wZ4KidCViIOZNLPE70aWYiYBNK71o+0r0qaPLZu3cNZuMGRwuxF4XFzfv2kg3ccZOUcj7R+W2yxRQj6L2OidxBSPyfloynbCrWAlFH1M+O33JPoA2AQJBAP96NtJ5ckrcw9UUi8LtD3d/Nk4xRB4ObvuB1mCybCSXUPWdHcSQ6AnnP+PMFM96yBpXxdlsgOwV4XJxGjjSp00CQQDSJy2ck30hEiFwLr+BQWwHLrgkAQYUBODXo4gd80ue/dop8K1Bhi7uxB6mxaYALDjC8dypNE93Fgql/h3Oz0yBAkBALSQ+ZRGn6qMrELk3IzPicctjgw64eim49lmy+r8dxgEpYemLaldPvY6YG7kSkaZYr7ncr1wHckuq4uySX6B1AkEAlfVI8dq4xll2rONe2fACExn+Ygqs+KoGezmBDsYmZvyDqbvJFeGXKd+ec6jD7Imhs1H9AGyIa9S5onszb/iygQJAWqlI0ZnoocL/sllDIWFEBq4bb58cwlom01ukerawpQnwLeMG9Y1gxmAxUwqcM89Og3xpzSeejFHzZ8DCV2uypA=='
+
+        //腾讯Bugly的的appkey
+        BUGLY_APP_KEY = 'f189081c9b'
+//        3cc44b5a-ddf4-4e39-9eb2-7c152e39e05a
+        //支付结果回调地址
+        ALIPAY_NOTIFY_URL = "https://apibeta.colorfulflorist.com/app/payments/aliNotify";
+
+        //百度钱包的回调地址
+        BAIDU_NOTIFY_URL = "";
+
+        //银联的 rsa 模数
+        UNIPAY_RSA_MODULUS = ""
+
+        //新浪的app key 可康安
+        SINA_APP_KEY = '2274797313'
+        SINA_SECRET = '6dd22a7cd5aff722aedd360eb21659cf'
+
+        //qq空间的 app key   //qq 空间的secret
+        QZONE_APP_KEY = 'Kv8Yd7BnsaOhvoWj'
+        QZONE_SECRET = '1106480664'
+
+        //qq的 app id app key 可康安
+        QQ_APP_KEY = 'Kv8Yd7BnsaOhvoWj'
+        QQ_APP_ID = '1106480664'
+
+        /*=============sdk的配置结束=================================================================================*/
+
+        /*========签名配置开始===============================================================*/
+        KEY_ALIAS = 'colorfulKey'
+        KEY_PASSWORD = '123456'
+        STORE_FILE = '../insurance.jks'
+        STORE_PASSWORD = '123456'
+        /*========签名配置结束===============================================================*/
+    }
+    //  阿里云推送 及阿里云产品的信息支持包
+    repositories {
+        jcenter()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
+    }
+}
+
+allprojects { project ->
+    project.afterEvaluate {
+        if (project.plugins.hasPlugin('com.android.application')) {
+            //def appFile = project.buildscript.sourceFile
+            project.dependencies
+        }
+    }
+}
+
+import com.sun.xml.internal.stream.writers.UTF8OutputStreamWriter
+import groovy.xml.MarkupBuilder
+
+import java.text.SimpleDateFormat
+
+def versionXML = "version.xml".toString();
+def artifact = APP_PACKAGE + "_release_" + APP_VERSION + "_V" + APP_VERSION_NAME
+
+def artifactFile = new File(rootDir, artifact);
+def artifactXML = new File(rootDir, versionXML);
+
+def apkFile = artifact + ".apk";
+def zipFile = artifact + ".zip";
+
+def releaseNote = "第一次发布,大家多多照顾";
+def domain = "http://120.25.222.190/"
+
+
+task clear << {
+    rootProject.buildDir.delete();
+    allprojects { project ->
+        delete project.buildDir
+    }
+}
+
+/**生成源代码包*/
+task generateZip(dependsOn: clear) {
+    doLast {
+        def sdf = new SimpleDateFormat('yyyy-MM-dd HH:mm:ss');
+        def fileName = rootProject.name + "_" + sdf.format(new Date()) + '.zip'
+        ant.zip(destfile: /*'../' +*/ new File("/Users/apple/Desktop/AndroidDev/DevTools/项目备份", fileName)) {
+            fileset(dir: '../') {
+                include(name: "*$rootProject.name/**")
+                exclude(name: "**/**.zip")
+            }
+        }
+        logger.lifecycle("Zip generated succssful.")
+    }
+}
+/**
+ * 生成发布包需要的东西
+ */
+task generateRealeaseInfo(dependsOn: 'app:assembleRelease') {
+    doLast {
+
+        file(new File(project(":app").getBuildDir(), "outputs/apk/")).listFiles().each {
+            if (it.getName().endsWith('release.apk')) {
+                it.renameTo(new File(rootDir, apkFile))
+            }
+        }
+
+        def downloadURL = domain + artifact;
+        def writer = new UTF8OutputStreamWriter(new FileOutputStream(artifactXML))
+
+        def xml = new MarkupBuilder(writer);
+
+        xml."$APP_PACKAGE" {
+            versionCode { mkp.yield(APP_VERSION) }
+            versionName { mkp.yield(APP_VERSION_NAME) }
+            date { mkp.yield(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())) }
+            content {
+                mkp.yield(releaseNote)
+            }
+            "package" {
+                mkp.yield(APP_VERSION)
+            }
+            address {
+                mkp.yield(downloadURL)
+            }
+        }
+
+        task(zipResources, type: Zip) {
+            destinationDir rootDir
+            archiveName zipFile
+            from rootDir
+            include artifactXML.name, apkFile
+        }.execute()
+    }
+}
+
+getGradle().addProjectEvaluationListener(new ProjectEvaluationListener() {
+    @Override
+    void beforeEvaluate(Project project) {
+
+    }
+
+    @Override
+    void afterEvaluate(Project project, ProjectState state) {
+
+    }
+})
+

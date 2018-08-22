@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/weather_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/now_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="当前城市："
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/now_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="当前日期："
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/now_wendu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="温度区间："
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/now_wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="今日风向："
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/now_ganmao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="当前温度："
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#60F7F7F7" />
+
+</LinearLayout>

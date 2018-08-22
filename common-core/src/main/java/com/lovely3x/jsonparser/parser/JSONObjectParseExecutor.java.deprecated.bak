@@ -1,0 +1,196 @@
+package com.lovely3x.jsonparser.parser;
+
+import com.lovely3x.jsonparser.JSONStructuralType;
+import com.lovely3x.jsonparser.model.Stack;
+import com.lovely3x.jsonparser.source.JSONSource;
+
+/**
+ * Created by lovely3x on 15-6-30.
+ * 解析数据执行者,默认的JSONObject解析器使用的这个进行解析
+ */
+public class JSONObjectParseExecutor {
+
+    /**
+     * 解析指定的数据
+     *
+     * @param mSource  需要解析的数据源
+     * @param callback 解析时的回调
+     */
+    public void parse(JSONSource mSource, ParseExecutorCallback callback) {
+
+        if (mSource == null || callback == null) {
+            throw new IllegalArgumentException("JSONSource and callback not valid.");
+        }
+
+        String sourceString = mSource.input();
+
+        char preChar = '\0';
+
+        //找到开始符号和结束符号
+        char leftBoundSymbol = JSONStructuralType.STRUCTURAL_LEFT_CURLY_BRACKET;
+        char rightBoundSymbol = JSONStructuralType.STRUCTURAL_RIGHT_CURLY_BRACKET;
+
+        //定义起始位置和结束位置
+        final int count = sourceString.lastIndexOf(String.valueOf(rightBoundSymbol));
+        final int startPosition = sourceString.indexOf(String.valueOf(leftBoundSymbol)) + 1;
+
+        //左方括弧栈
+        Stack leftSquareBracket = new Stack();
+        //左花括弧栈
+        Stack leftCurlyBracket = new Stack();
+        //左方括弧下标栈
+        Stack indexOfLeftSquareBracket = new Stack();
+        //左方括弧下标栈
+        Stack indexOfLeftCurlyBracket = new Stack();
+
+        //右方括弧栈
+        Stack rightSquareBracket = new Stack();
+        //右花括弧栈
+        Stack rightCurlyBracket = new Stack();
+        //右方括弧下标栈
+        Stack indexOfRightSquareBracket = new Stack();
+        //右花括弧下标栈
+        Stack indexOfRightCurlyBracket = new Stack();
+
+        //转义字符栈下标栈
+        Stack indexOfEscapeStack = new Stack();
+        //转义字符栈
+        Stack escapeStack = new Stack();
+
+        //引号下标栈
+        Stack indexOfQuoteStack = new Stack();
+        //引号栈
+        Stack quoteStack = new Stack();
+
+        //分号下标栈
+        Stack indexOfColonStack = new Stack();
+        //分号栈
+        Stack colonStack = new Stack();
+
+        for (int i = startPosition; i < count; i++) {
+            char currentChar = sourceString.charAt(i);
+            switch (currentChar) {
+                case JSONStructuralType.STRUCTURAL_LEFT_CURLY_BRACKET:
+                    //如果当前没有对方括弧采集
+                    if (leftSquareBracket.size() == 0 && quoteStack.size() % 2 == 0) {
+                        leftCurlyBracket.push(currentChar);
+                        indexOfLeftCurlyBracket.push(i);
+                    }
+                    break;
+                case JSONStructuralType.STRUCTURAL_RIGHT_CURLY_BRACKET:
+                    if (leftCurlyBracket.size() > 0 && quoteStack.size() % 2 == 0) {
+                        //将符号和位置压入栈中,便于统计
+                        rightCurlyBracket.push(currentChar);
+                        indexOfRightCurlyBracket.push(i);
+                        //如果两边的花括弧的数量相同,则认为应该取出该段字符串了
+                        if (leftCurlyBracket.size() == rightCurlyBracket.size()) {
+                            int subStartPosition = indexOfLeftCurlyBracket.get(0);
+                            callback.onParsed(sourceString.substring(subStartPosition, i + 1));
+                            //清除花括弧栈数据
+                            leftCurlyBracket.clear();
+                            rightCurlyBracket.clear();
+                            indexOfLeftCurlyBracket.clear();
+                            indexOfRightCurlyBracket.clear();
+                            colonStack.clear();
+                            indexOfColonStack.clear();
+                        }
+                    }
+                    break;
+                case JSONStructuralType.STRUCTURAL_LEFT_SQUARE_BRACKET:
+                    if (leftCurlyBracket.size() == 0 && quoteStack.size() % 2 == 0) {
+                        leftSquareBracket.push(currentChar);
+                        indexOfLeftSquareBracket.push(i);
+                    }
+                    break;
+                case JSONStructuralType.STRUCTURAL_RIGHT_SQUARE_BRACKET:
+                    if (leftSquareBracket.size() > 0 && quoteStack.size() % 2 == 0) {
+                        //将符号和位置压入栈中,便于统计
+                        rightSquareBracket.push(currentChar);
+                        indexOfRightSquareBracket.push(i);
+                        //如果两边的花括弧的数量相同,则认为应该取出该段字符串了
+                        if (leftSquareBracket.size() == rightSquareBracket.size()) {
+                            int subStartPosition = indexOfLeftSquareBracket.get(0);
+                            callback.onParsed(sourceString.substring(subStartPosition, i + 1));
+                            //清除方括弧栈
+                            leftSquareBracket.clear();
+                            rightSquareBracket.clear();
+                            indexOfLeftSquareBracket.clear();
+                            indexOfRightSquareBracket.clear();
+                            colonStack.clear();
+                            indexOfColonStack.clear();
+                        }
+                    }
+                    break;
+
+                case JSONStructuralType.QUOTE:
+                    if (leftCurlyBracket.size() == 0 && leftSquareBracket.size() == 0) {
+                        //如果栈中存在转义字符
+                        //那么这个字符应该是被转义的
+                        //这就说明 转义字符在使用后应该被立即销毁
+                        if (escapeStack.size() > 0 && escapeStack.get(escapeStack.size() - 1) == JSONStructuralType.ESCAPE) {
+                            //销毁掉转义字符
+                            // escapeStack.pop();
+                            //  indexOfEscapeStack.pop();
+                            //这里修护了一个问题,就是以前只考虑到了字符串的转义,没有考虑到其他的字符转义,所以这里就改到末尾的 转义字符语句处理中了
+                        } else {//如果不是被转义的
+                            if (quoteStack.size() > 0 && quoteStack.get(quoteStack.size() - 1) == JSONStructuralType.QUOTE) {
+                                //如果已经存在字符,则认为一个key产生
+                                callback.onParsed(sourceString.substring(indexOfQuoteStack.pop(), i + 1));
+                                quoteStack.pop();
+                                if (colonStack.size() > 0) {
+                                    colonStack.pop();
+                                    indexOfColonStack.pop();
+                                }
+                            } else {
+                                //将字符压入栈中
+                                quoteStack.push(currentChar);
+                                indexOfQuoteStack.push(i);
+                            }
+                        }
+                    }
+                    break;
+                case JSONStructuralType.ESCAPE:
+                    if (leftCurlyBracket.size() == 0 && leftSquareBracket.size() == 0) {
+                        //将转义字符压入栈中
+                        escapeStack.push(currentChar);
+                        indexOfEscapeStack.push(i);
+                    }
+                    break;
+                case JSONStructuralType.STRUCTURAL_COMMA://逗号
+                    //没有进行数据采集
+                    // #fixed #5 {"key": "(,)"}
+                    if (leftCurlyBracket.size() == 0 && leftSquareBracket.size() == 0 && quoteStack.size() == 0) {
+                        if (colonStack.size() > 0) {
+                            colonStack.pop();
+                            callback.onParsed(sourceString.substring(indexOfColonStack.pop() + 1, i));
+                        }
+                    }
+                    break;
+                case JSONStructuralType.STRUCTURAL_COLON://冒号
+                    //没有进行数据收集
+                    if (leftCurlyBracket.size() == 0 && leftSquareBracket.size() == 0 && quoteStack.size() == 0) {
+                        //将分号压入栈
+                        colonStack.push(currentChar);
+                        indexOfColonStack.push(i);
+                    }
+                    break;
+            }
+
+            //如果上个字符为转义字符,弹出它,那么他肯定是为了转义这个字符的,弹掉他
+            if (preChar == JSONStructuralType.ESCAPE) {
+                if (escapeStack.size() > 0) {
+                    escapeStack.pop();
+                    indexOfEscapeStack.pop();
+                }
+            }
+
+            //末尾,可能存在数据
+            if (colonStack.size() > 0 && i + 1 == count) {
+                colonStack.pop();
+                callback.onParsed(sourceString.substring(indexOfColonStack.pop() + 1, count));
+            }
+            preChar = currentChar;
+        }
+    }
+
+}

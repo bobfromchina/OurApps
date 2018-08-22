@@ -1,0 +1,15 @@
+include ':app', ':jframelibray'
+
+//include ':common-core'//通用库
+//
+//include ':indicator-library'//滚动指示器库
+//
+//include ':google_camera_view_library'//相机
+//
+//include ':AndroidImageCropper'//图片裁切库
+
+include ':action-sheet-library'//仿照IOS的弹窗效果
+
+include ':refresh-layout', ':refresh-header'
+
+
