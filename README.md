@@ -28,7 +28,6 @@
 
     compile project(':refresh-layout')
 
-    //仿照IOS的弹窗效果
     compile project(':action-sheet-library')
 
     compile('com.alibaba.android:vlayout:1.0.4@aar') {
