@@ -22,7 +22,7 @@ import butterknife.BindView
 /**
  * Created by wangbo on 2018/8/15.
  *
- * 每日
+ * 每日推荐
  */
 class CommentSongsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<CommentSoongsBean> {
 
@@ -32,7 +32,6 @@ class CommentSongsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<Co
     lateinit var commonList: RecyclerViewHeaderAndFooter
 
     private lateinit var imgHeader: ImageView
-
 
     private var listData: ArrayList<CommentSoongsBean> = ArrayList()
 

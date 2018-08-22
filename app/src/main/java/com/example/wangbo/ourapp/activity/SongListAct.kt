@@ -19,7 +19,7 @@ import butterknife.BindView
  * Created by wangbo on 2018/8/15.
  * 歌单
  */
-class SonglistAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<SongListBean> {
+class SongListAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<SongListBean> {
 
     private lateinit var songlistAdapter: SonglistAdapter
 

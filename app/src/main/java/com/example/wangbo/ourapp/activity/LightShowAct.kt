@@ -108,7 +108,6 @@ class LightShowAct : JBaseAct() {
 
     }
 
-
     /**
      * 灯光控制
      */

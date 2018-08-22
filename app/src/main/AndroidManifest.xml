@@ -132,7 +132,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.SonglistAct"
+            android:name=".activity.SongListAct"
             android:label="歌单"
             android:screenOrientation="portrait" />
 

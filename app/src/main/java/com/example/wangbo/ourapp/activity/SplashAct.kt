@@ -1,6 +1,5 @@
 package com.example.wangbo.ourapp.activity
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -9,16 +8,11 @@ import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.manager.UserManager
 import com.example.wangbo.ourapp.utils.IDialogCallBack
 import com.jackmar.jframelibray.base.JBaseAct
-import com.jackmar.jframelibray.http.subscriber.IOnNextListener
-import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
 import com.jackmar.jframelibray.utils.PreHelper
 import com.jackmar.jframelibray.utils.PreferenceKey
-import com.jackmar.jframelibray.utils.StrUtil
-
 
 /**
  * Created by JackMar on 2018/4/11.
- *
  *
  * 引导页
  */

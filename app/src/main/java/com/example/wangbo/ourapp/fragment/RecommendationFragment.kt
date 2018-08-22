@@ -10,7 +10,7 @@ import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.activity.CommentSongsAct
 import com.example.wangbo.ourapp.activity.RankingListAct
 import com.example.wangbo.ourapp.activity.SongListDetailsAct
-import com.example.wangbo.ourapp.activity.SonglistAct
+import com.example.wangbo.ourapp.activity.SongListAct
 import com.example.wangbo.ourapp.adapter.CommentMusicListAdapter
 import com.example.wangbo.ourapp.adapter.RecyclerListAdapter
 import com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter
@@ -146,7 +146,7 @@ class RecommendationFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListe
         when (view.id) {
             R.id.one -> showToast("开发中...")
             R.id.two -> launchActivity(CommentSongsAct::class.java)
-            R.id.three -> launchActivity(SonglistAct::class.java)
+            R.id.three -> launchActivity(SongListAct::class.java)
             R.id.four -> launchActivity(RankingListAct::class.java)
         }
     }

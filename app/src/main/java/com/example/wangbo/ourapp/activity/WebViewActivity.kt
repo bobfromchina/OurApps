@@ -47,9 +47,17 @@ class WebViewActivity : JBaseAct() {
 
         tvShouCang.setOnClickListener {
             if (tvShouCang.text.toString() == "收藏") {
-                HttpHelper.getInstance(context).commentnews(bean.linkUrl, bean.title, bean.author, bean.tag, bean.images[0], UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<NewsBean> { o -> tvShouCang.text = if (o.followStatus == 1) "取消收藏" else "收藏" }))
+                HttpHelper.getInstance(context).commentnews(bean.linkUrl, bean.title, if (bean.author != null) bean.author else bean.source,
+                        bean.tag, if (bean.images != null) bean.images[0] else bean.picInfo, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<NewsBean>
+                { o ->
+                    bean = o
+                    tvShouCang.text = "取消收藏"
+                }))
             } else {
-                HttpHelper.getInstance(context).cancelCommentNews(bean.id, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<NewsBean> { o -> tvShouCang.text = if (o.followStatus == 1) "取消收藏" else "收藏" }))
+                HttpHelper.getInstance(context).cancelCommentNews(bean.id, UserManager.getInstance().userId, ProgressSubscriber(context, IOnNextListener<NewsBean>
+                { o ->
+                    tvShouCang.text = "收藏"
+                }))
             }
         }
 

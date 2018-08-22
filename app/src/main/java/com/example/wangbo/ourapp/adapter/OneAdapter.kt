@@ -38,8 +38,18 @@ class OneAdapter(datas: List<NewsBean>, context: Context) : RecyclerListAdapter<
         }
 
         viewHolder.name.text = bean.title
-        viewHolder.tvTime.text = bean.author
-        viewHolder.tvTag.text = bean.tag
+
+        if (bean.author != null && bean.author != "") {
+            viewHolder.tvTime.text = bean.author
+        } else {
+            viewHolder.tvTime.text = bean.source
+        }
+
+        if (bean.tag != null && bean.tag == "defaultValue") {
+            viewHolder.tvTag.text = ""
+        } else {
+            viewHolder.tvTag.text = bean.tag
+        }
 
         viewHolder.llContainer.setOnClickListener {
             if (bean.linkUrl != null && bean.linkUrl != "") {

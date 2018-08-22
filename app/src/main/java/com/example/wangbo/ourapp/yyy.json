@@ -1,5 +1,39 @@
-    "backgroundUrl":"http://p1.music.126.net/usXO85HSDgqeEz3meiH6ow\u003d\u003d/7937374442360785.jpg",
-    "avatarUrl":"http://p1.music.126.net/ps6WTvt1FnbOoYvUPDdzOA\u003d\u003d/3394192433248383.jpg",
-    "backgroundImgIdStr":"7937374442360785","avatarImgIdStr":"3394192433248383","mutual":false,"province":440000,"authority":0,"nickname":"原创君",
-    "backgroundUrl":"http://p1.music.126.net/iSLKzBQnWAnR8QpLm7RydQ\u003d\u003d/109951163205474564.jpg",
-    "coverImgUrl":"http://p1.music.126.net/TQm9yNdwhALrcMr76nAtSg\u003d\u003d/109951163458589142.jpg","playCount":604840,"coverImgId":109951163458589142,"createTime":1534234412559,
+{
+  "msg": "新闻列表获取成功！",
+  "status": 1,
+  "data": [
+    {
+      "id": 6,
+      "linkUrl": "http://3g.163.com/news/18/0822/08/DPQ6LEN00001875O.html",
+      "title": "8年换8岗的团委书记年龄造假被揭 带倒副部级岳父",
+      "source": "长安街知事",
+      "tag": "defaultValue",
+      "picInfo": "http://cms-bucket.nosdn.127.net/2018/08/22/91b6bf2b3393433b98c574964982eb87.png",
+      "ptime": "Wed Aug 22 17:28:21 CST 2018",
+      "userId": 1,
+      "followStatus": 1
+    },
+    {
+      "id": 8,
+      "linkUrl": "http://3g.163.com/news/18/0822/08/DPQ3IHGD000189FH.html",
+      "title": "与党和人民同呼吸 与时代发展共进步",
+      "source": "人民网$",
+      "tag": "defaultValue",
+      "picInfo": "http://cms-bucket.nosdn.127.net/catchpic/9/98/98fe4f354057a64a0cfa0026f0d8e08e.jpg",
+      "ptime": "Wed Aug 22 17:36:06 CST 2018",
+      "userId": 1,
+      "followStatus": 1
+    },
+    {
+      "id": 9,
+      "linkUrl": "http://3g.163.com/news/18/0822/10/DPQDBMBB00018AOQ.html",
+      "title": "\"太阳花女王\"刘乔安卖淫又吸毒 父母与其断绝关系",
+      "source": "中国台湾网",
+      "tag": "defaultValue",
+      "picInfo": "http://cms-bucket.nosdn.127.net/2018/08/22/c71b4566239042c7aecc5860e903d2bc.png",
+      "ptime": "Wed Aug 22 17:52:48 CST 2018",
+      "userId": 1,
+      "followStatus": 1
+    }
+  ]
+}

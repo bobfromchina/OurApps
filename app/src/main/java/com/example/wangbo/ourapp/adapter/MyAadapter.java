@@ -78,6 +78,7 @@ public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolde
     protected static class MainViewHolder extends RecyclerView.ViewHolder {
 
         public static volatile int existing = 0;
+
         public static int createdTimes = 0;
 
         public MainViewHolder(View itemView) {

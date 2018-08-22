@@ -40,8 +40,8 @@ class ModifyPwdAct : JBaseAct() {
 
     override fun initView() {
         if (type == 3) {
-            oldPwd.setHint("请输入登录密码")
-            newPwd.setHint("请设置记事本密码")
+            oldPwd.hint = "请输入登录密码"
+            newPwd.hint = "请设置记事本密码"
         }
     }
 
@@ -56,7 +56,7 @@ class ModifyPwdAct : JBaseAct() {
 
                 val old = oldPwd.text.toString()
                 val news = newPwd.text.toString()
-                if (old.equals("") || news.equals("")) {
+                if (old == "" || news == "") {
                     showToast("请输入完善信息，谢谢")
                     return
                 }

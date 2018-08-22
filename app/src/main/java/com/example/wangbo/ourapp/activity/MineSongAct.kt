@@ -21,7 +21,7 @@ class MineSongAct : JBaseAct() {
     @BindView(R.id.common_list)
     lateinit var commonList: RecyclerViewHeaderAndFooter
 
-    lateinit var mineSongAdapter: MineSongAdapter
+    private lateinit var mineSongAdapter: MineSongAdapter
 
     private var listData: ArrayList<SongBean> = ArrayList()
 

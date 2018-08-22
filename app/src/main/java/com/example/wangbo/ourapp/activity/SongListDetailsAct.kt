@@ -28,7 +28,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation
 /**
  * Created by wangbo on 2018/8/7.
  *
- *
  * 获取歌单详情
  */
 class SongListDetailsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<MusicListDetails> {

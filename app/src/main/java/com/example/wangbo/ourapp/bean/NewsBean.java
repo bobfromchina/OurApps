@@ -32,10 +32,12 @@ public class NewsBean implements Parcelable {
 
     private String picInfo;
 
+    private String source;
+
     public NewsBean() {
     }
 
-    public NewsBean(List<String> images, String author, String title, int type, String id, String createTime, String linkUrl, String tag, int followStatus, String picInfo) {
+    public NewsBean(List<String> images, String author, String title, int type, String id, String createTime, String linkUrl, String tag, int followStatus, String picInfo, String source) {
         this.images = images;
         this.author = author;
         this.title = title;
@@ -46,6 +48,7 @@ public class NewsBean implements Parcelable {
         this.tag = tag;
         this.followStatus = followStatus;
         this.picInfo = picInfo;
+        this.source = source;
     }
 
     public List<String> getImages() {
@@ -128,6 +131,14 @@ public class NewsBean implements Parcelable {
         this.picInfo = picInfo;
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     @Override
     public String toString() {
         return "NewsBean{" +
@@ -141,6 +152,7 @@ public class NewsBean implements Parcelable {
                 ", tag='" + tag + '\'' +
                 ", followStatus=" + followStatus +
                 ", picInfo='" + picInfo + '\'' +
+                ", source='" + source + '\'' +
                 '}';
     }
 
@@ -162,6 +174,7 @@ public class NewsBean implements Parcelable {
         dest.writeString(this.tag);
         dest.writeInt(this.followStatus);
         dest.writeString(this.picInfo);
+        dest.writeString(this.source);
     }
 
     protected NewsBean(Parcel in) {
@@ -175,6 +188,7 @@ public class NewsBean implements Parcelable {
         this.tag = in.readString();
         this.followStatus = in.readInt();
         this.picInfo = in.readString();
+        this.source = in.readString();
     }
 
     public static final Creator<NewsBean> CREATOR = new Creator<NewsBean>() {
