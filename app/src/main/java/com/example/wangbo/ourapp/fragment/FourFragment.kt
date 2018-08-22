@@ -69,6 +69,7 @@ class FourFragment : JBaseFg() {
             }))
         } else {
             goLogin.text = "登录"
+            goLogin.text = "登录"
         }
     }
 
