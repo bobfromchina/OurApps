@@ -101,7 +101,7 @@ public class UpDownTextView extends TextSwitcher implements ViewFactory {
     @Override
     public View makeView() {
         TextView tv = new TextView(context);
-        tv.setTextColor(ContextCompat.getColor(context, R.color.white));
+        tv.setTextColor(ContextCompat.getColor(context, R.color.white_fouty));
         tv.setSingleLine();
         tv.setEllipsize(TextUtils.TruncateAt.END);
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

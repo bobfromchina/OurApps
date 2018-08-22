@@ -37,6 +37,7 @@ class MineNoteAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<ThreeB
     override fun initView() {
         adapter = ThreeAdapter(listData, context)
         commonList.adapter = adapter
+        adapter.setOnItemClickedListener(this)
     }
 
     override fun initData() {

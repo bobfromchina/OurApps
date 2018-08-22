@@ -46,6 +46,12 @@ class CommentMusicListAdapter(datas: List<CommentMusicListBean>, context: Contex
         } else if (bean.playCount > 100000000) {
             viewHolder.num.text = bean.playCount.toString().substring(0, 1) + "." + bean.playCount.toString().substring(2, 3) + "亿"
         }
+
+//        val ll = RelativeLayout.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT)
+////        ll.leftMargin = if (position % 3 == 0 || position == 0) 6 else 0
+//        viewHolder.pic.layoutParams = ll
     }
 
     inner class ViewHolder(rootView: View) : BaseRecyclerViewHolder(rootView) {

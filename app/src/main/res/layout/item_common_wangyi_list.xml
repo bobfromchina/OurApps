@@ -21,23 +21,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
             android:text="1.2E"
             android:textColor="@color/white"
             android:textSize="11sp" />
 
-
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
-            android:text="1.2E"
-            android:layout_marginLeft="8dp"
             android:paddingBottom="8dp"
+            android:text="1.2E"
             android:textColor="@color/white"
             android:textSize="11sp"
             android:visibility="gone" />
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginRight="3dp"
         android:layout_marginTop="2dp"
-
         android:ellipsize="end"
         android:maxLines="2"
         android:minLines="2"
