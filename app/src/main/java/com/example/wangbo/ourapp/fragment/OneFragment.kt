@@ -48,7 +48,8 @@ import butterknife.OnClick
  *
  * 页面1
  */
-class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHeaderBean>, View.OnClickListener, ViewPager.OnPageChangeListener {
+class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHeaderBean>,
+        View.OnClickListener, ViewPager.OnPageChangeListener {
 
     @BindView(R.id.siv_activity_task_details_indicator)
     lateinit var psts: PagerSlidingTabStrip
@@ -61,9 +62,6 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
 
     @BindView(R.id.search_view)
     lateinit var searchView: UpDownTextView
-
-    @BindView(R.id.view_line)
-    lateinit var viewLine: View
 
     @BindView(R.id.nav_view)
     lateinit var navView: NavigationView
@@ -185,7 +183,6 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
     /**
      * inflateHeaderView 进来的布局要宽一些
      */
-
     private fun initDrawerLayout() {
         navView.inflateHeaderView(R.layout.nav_header_main)
         val headerView = navView.getHeaderView(0)
@@ -203,7 +200,7 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
 
     override fun onClick(view: View) {
         when (view.id) {
-        //  项目首页
+        // 项目首页
             R.id.ll_nav_homepage -> launchActivity(VLayoutAct::class.java)
         // 我的天气
             R.id.ll_weather -> launchActivity(WeatherAct::class.java)

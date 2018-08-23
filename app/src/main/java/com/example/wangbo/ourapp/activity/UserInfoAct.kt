@@ -11,11 +11,15 @@ import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.bean.PersonInfo
 import com.example.wangbo.ourapp.http.HttpHelper
 import com.example.wangbo.ourapp.manager.UserManager
+import com.example.wangbo.ourapp.utils.ImageDownloader
+import com.example.wangbo.ourapp.utils.LoadPic
 import com.example.wangbo.ourapp.utils.RoundedImageView
 import com.jackmar.jframelibray.base.JBaseAct
 import com.jackmar.jframelibray.http.subscriber.IOnNextListener
 import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
 import com.jackmar.jframelibray.utils.GlideImageLoadUtil
+import com.lzy.imagepicker.bean.ImageItem
+import kotlinx.android.synthetic.main.item_rank_list.*
 
 /**
  * Created by wangbo on 2018/8/21.
@@ -51,13 +55,26 @@ class UserInfoAct : JBaseAct(), ActionSheet.ActionSheetListener {
             val name = tvUserName.text.toString()
             val sex = if (tvSex.text.toString() == "男") "1" else "0"
             val token = UserManager.getInstance().userId
-
+//            val list = ArrayList<String>()
+//            list.add(path)
+//            var pic = LoadPic.upLoadPic(list, UserManager.getInstance().getUserId());
+//            showToast(pic)
             HttpHelper.getInstance(context).modifyUserInfo(name, sex, token, ProgressSubscriber(context, IOnNextListener<String> { showToast("修改成功！") }))
         }
     }
 
-    override fun initView() {
+    lateinit var path: String
 
+    override fun OnImageSelected(images: java.util.ArrayList<ImageItem>?) {
+        super.OnImageSelected(images)
+        if (images != null && images.size > 0) {
+            path = images[0].path
+            GlideImageLoadUtil.loadFileImage(context, images[0].path, imgHeader)
+        }
+    }
+
+
+    override fun initView() {
 
         val p = intent.getParcelableExtra<PersonInfo>(EXTRA_USER_INFO)
         if (p != null) {
