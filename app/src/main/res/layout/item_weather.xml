@@ -93,6 +93,6 @@
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#60F7F7F7" />
+        android:background="#70F7F7F7" />
 
 </LinearLayout>

@@ -40,7 +40,7 @@ class WeatherAdapter(datas: List<WeatherBean>, context: Context) : RecyclerListA
 
         GlideImageLoadUtil.loadImage(mContext, weatherBean.weather_icon, viewHolder.img)
 
-        viewHolder.line.visibility = if (datas.size - position == 1) View.VISIBLE else View.GONE
+        viewHolder.line.visibility = if (datas.size - position != 1) View.VISIBLE else View.GONE
     }
 
     internal inner class ViewHolder(rootView: View) : BaseRecyclerViewHolder(rootView) {
@@ -49,10 +49,10 @@ class WeatherAdapter(datas: List<WeatherBean>, context: Context) : RecyclerListA
         lateinit var date: TextView
 
         @BindView(R.id.type)
-        lateinit  var type: TextView
+        lateinit var type: TextView
 
         @BindView(R.id.high)
-        lateinit  var high: TextView
+        lateinit var high: TextView
 
         @BindView(R.id.low)
         lateinit var low: TextView
@@ -61,7 +61,7 @@ class WeatherAdapter(datas: List<WeatherBean>, context: Context) : RecyclerListA
         lateinit var wind: TextView
 
         @BindView(R.id.img)
-        lateinit  var img: ImageView
+        lateinit var img: ImageView
 
         @BindView(R.id.line)
         lateinit var line: View

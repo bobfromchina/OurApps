@@ -85,7 +85,6 @@ class LoginAct : JBaseAct() {
     }
 
     companion object {
-
         fun start(context: Context) {
             val intent = Intent(context, LoginAct::class.java)
             context.startActivity(intent)

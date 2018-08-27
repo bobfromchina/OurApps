@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by wangbo on 2018/8/7.
+ *
+ *  音乐列表
  */
 public class MusicListDetails implements Parcelable{
 
@@ -19,9 +21,9 @@ public class MusicListDetails implements Parcelable{
 
     private String publishTime;
 
-    List<Al> al;
+    private List<Al> al;
 
-    List<Ar> ar;
+    private List<Ar> ar;
 
     public MusicListDetails() {
     }

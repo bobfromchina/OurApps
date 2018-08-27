@@ -101,7 +101,6 @@ class LightShowAct : JBaseAct() {
         super.onDestroy()
         camera.stopPreview()
         camera.release()
-//        camera = null
     }
 
     override fun initData() {

@@ -17,7 +17,7 @@ public class OurApplication extends Application {
     private static OurApplication sInstance;
 
     // 正式环境
-    public static String hostUrl = "http://qza5js.natappfree.cc";
+    public static String hostUrl = "http://haqi32.natappfree.cc";
 //    public static String hostUrl = "192.168.7.127:80";
 
     //单例模式中获取唯一的MyApplication实例

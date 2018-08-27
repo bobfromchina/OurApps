@@ -14,13 +14,6 @@ import android.view.View
 import android.widget.TextView
 
 import com.example.wangbo.ourapp.R
-import com.example.wangbo.ourapp.activity.AboutUsAct
-import com.example.wangbo.ourapp.activity.FeedBookAct
-import com.example.wangbo.ourapp.activity.LightShowAct
-import com.example.wangbo.ourapp.activity.LoginAct
-import com.example.wangbo.ourapp.activity.MineNewsAct
-import com.example.wangbo.ourapp.activity.VLayoutAct
-import com.example.wangbo.ourapp.activity.WeatherAct
 import com.example.wangbo.ourapp.base.IndicatorPagerAdapter
 import com.example.wangbo.ourapp.adapter.RecyclerListAdapter
 import com.example.wangbo.ourapp.bean.OneHeaderBean
@@ -42,6 +35,7 @@ import java.util.ArrayList
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.example.wangbo.ourapp.activity.*
 
 /**
  * Created by wangbo on 2018/7/3.
@@ -106,7 +100,7 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
 
         val res = arrayOf("大家都在看 爸爸去哪儿了", "可爱的小瓶子 你还不买吗")
         searchView.setResources(res)
-        searchView.setTextStillTime(5000)
+        searchView.setTextStillTime(3000)
         searchView.setOnClickListener { showToast(searchView.nowText) }
 
         initViewPager()
@@ -201,7 +195,7 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
     override fun onClick(view: View) {
         when (view.id) {
         // 项目首页
-            R.id.ll_nav_homepage -> launchActivity(VLayoutAct::class.java)
+            R.id.ll_nav_homepage -> launchActivity(ProjectPackAct::class.java)
         // 我的天气
             R.id.ll_weather -> launchActivity(WeatherAct::class.java)
         // 我的灯光
@@ -246,3 +240,5 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
 
     }
 }
+
+

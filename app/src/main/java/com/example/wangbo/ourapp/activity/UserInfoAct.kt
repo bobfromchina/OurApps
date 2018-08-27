@@ -11,15 +11,12 @@ import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.bean.PersonInfo
 import com.example.wangbo.ourapp.http.HttpHelper
 import com.example.wangbo.ourapp.manager.UserManager
-import com.example.wangbo.ourapp.utils.ImageDownloader
-import com.example.wangbo.ourapp.utils.LoadPic
 import com.example.wangbo.ourapp.utils.RoundedImageView
 import com.jackmar.jframelibray.base.JBaseAct
 import com.jackmar.jframelibray.http.subscriber.IOnNextListener
 import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
 import com.jackmar.jframelibray.utils.GlideImageLoadUtil
 import com.lzy.imagepicker.bean.ImageItem
-import kotlinx.android.synthetic.main.item_rank_list.*
 
 /**
  * Created by wangbo on 2018/8/21.
@@ -29,9 +26,12 @@ import kotlinx.android.synthetic.main.item_rank_list.*
 class UserInfoAct : JBaseAct(), ActionSheet.ActionSheetListener {
 
     companion object {
-        val EXTRA_USER_INFO = "extra_user_info"
+        const val EXTRA_USER_INFO = "extra_user_info"
     }
 
+    /**
+     * 头像
+     */
     @BindView(R.id.img_head)
     lateinit var imgHeader: RoundedImageView
 
@@ -72,7 +72,6 @@ class UserInfoAct : JBaseAct(), ActionSheet.ActionSheetListener {
             GlideImageLoadUtil.loadFileImage(context, images[0].path, imgHeader)
         }
     }
-
 
     override fun initView() {
 

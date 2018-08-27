@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Carson_Ho</title>
+    <script>
+
+
+   // Android主动调用JS方法
+   function callJS(){
+      alert("Android调用了JS的callJS方法");
+   }
+
+   // H5主动调用Android方法，获取对象映射
+   function callAndroid(){
+     var test =  android.loadNative("js调用了android中的loadNative方法，并获得了返回值，我们这里将他弹出");
+     alert(test);
+   }
+
+   // 请求拦截
+    function callIntercept(){
+            /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+            document.location = "js://webview?arg1=111&arg2=222";
+    }
+
+    </script>
+
+</head>
+
+<body>
+<button type="button" id="button1" onclick="callAndroid()">调用原生的方法并获取值</button>
+<br>
+
+<button type="button" id="button2" onclick="callIntercept()">请求拦截</button>
+<br><br>
+
+
+这里我尝试做了一些Native和H5的交互:<br>
+
+Native和H5的主要交互方式是在约定了一些交互方式，制定keyMap，通过对象映射来获取想要的值<br><br>
+
+1 原生调用JS方法(dialog)<br>
+
+2 原生构造方法传值给H5<br>
+
+3 原生拦截H5的JS方法，获取请求值<br>
+
+</body>
+
+</html>
