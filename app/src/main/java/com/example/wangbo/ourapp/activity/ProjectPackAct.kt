@@ -56,6 +56,8 @@ class ProjectPackAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener<Pro
                 launchActivity(VLayoutAct::class.java)
             "2" ->
                 launchActivity(NativeTestAct::class.java)
+            "3" ->
+                launchActivity(KotlinTestAct::class.java)
         }
     }
 

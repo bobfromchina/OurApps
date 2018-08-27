@@ -151,6 +151,11 @@
             android:label="测试文本类"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.KotlinTestAct"
+            android:label="Kotlin测试类"
+            android:screenOrientation="portrait" />
+
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />
