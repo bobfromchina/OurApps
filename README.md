@@ -12,9 +12,9 @@
  3 记事本
  4 天气预报
  
- 以学习为兴趣来写一些自己想要玩的东西。
-
 ![这里写什么](https://github.com/bobfromchina/OurApps/blob/master/app/src/main/res/drawable-xxhdpi/1.jpeg)
+
+ 以学习为兴趣来写一些自己想要玩的东西。
 
 ![这里写什么](https://github.com/bobfromchina/OurApps/blob/master/app/src/main/res/drawable-xxhdpi/2.jpeg)
 
