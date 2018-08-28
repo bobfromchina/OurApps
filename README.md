@@ -9,7 +9,8 @@
  3 记事本
  4 天气预报
 
-![Alt text](https://github.com/bobfromchina/OurApps/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+![这里写什么](https://github.com/bobfromchina/OurApps/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+
 
 用到的jar包：
  compile fileTree(include: ['*.jar'], dir: 'libs')
