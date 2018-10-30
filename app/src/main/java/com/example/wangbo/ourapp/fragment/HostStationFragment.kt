@@ -33,7 +33,7 @@ class HostStationFragment : JBaseFg(), View.OnClickListener, RecyclerListAdapter
 
     private var bannerList = ArrayList<String>()
 
-    lateinit var banner: ConvenientBanner<String>
+    private lateinit var banner: ConvenientBanner<String>
 
     private lateinit var one: TextView
 

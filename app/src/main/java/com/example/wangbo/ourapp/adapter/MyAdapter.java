@@ -16,12 +16,15 @@ import com.example.wangbo.ourapp.R;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by wangbo on 2018/8/21.
  * <p>
  * 重写适配器
  */
-public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolder> {
+public class MyAdapter extends DelegateAdapter.Adapter<MyAdapter.ViewHolder> {
 
     private int mCount = 0;
 
@@ -33,7 +36,7 @@ public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolde
 
     private List<String> datas;
 
-    public MyAadapter(Context context, List<String> data, LayoutHelper layoutHelper1, int i) {
+    public MyAdapter(Context context, List<String> data, LayoutHelper layoutHelper1, int i) {
         super();
         this.datas = data;
         this.mContext = context;
@@ -41,7 +44,7 @@ public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolde
         mCount = i;
     }
 
-    public MyAadapter(Context context, List<String> data, LayoutHelper layoutHelper1, int i, @Nullable @NonNull VirtualLayoutManager.LayoutParams layoutParams) {
+    public MyAdapter(Context context, List<String> data, LayoutHelper layoutHelper1, int i, @Nullable @NonNull VirtualLayoutManager.LayoutParams layoutParams) {
         super();
         this.datas = data;
         this.mContext = context;
@@ -56,18 +59,27 @@ public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolde
     }
 
     @Override
-    public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MainViewHolder(LayoutInflater.from(mContext).inflate(R.layout.v_item, parent, false));
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.v_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(MainViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemView.setLayoutParams(mLayoutParams != null ? mLayoutParams : new VirtualLayoutManager.LayoutParams(new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)));
     }
 
+
     @Override
-    protected void onBindViewHolderWithOffset(MainViewHolder holder, int position, int offsetTotal) {
-        ((TextView) holder.itemView.findViewById(R.id.tv_title)).setText(datas.get(position));
+    protected void onBindViewHolderWithOffset(final ViewHolder holder, int position, int offsetTotal) {
+        String data = datas.get(position);
+        holder.tv_title.setText(data);
+
+        holder.tv_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.tv_title.setText("南非共和国");
+            }
+        });
     }
 
     @Override
@@ -75,22 +87,15 @@ public class MyAadapter extends DelegateAdapter.Adapter<MyAadapter.MainViewHolde
         return mCount;
     }
 
-    protected static class MainViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public static volatile int existing = 0;
+        TextView tv_title;
 
-        public static int createdTimes = 0;
+        public ViewHolder(View view) {
+            super(view);
 
-        public MainViewHolder(View itemView) {
-            super(itemView);
-            createdTimes++;
-            existing++;
-        }
+            tv_title = view.findViewById(R.id.tv_title);
 
-        @Override
-        protected void finalize() throws Throwable {
-            existing--;
-            super.finalize();
         }
     }
 }

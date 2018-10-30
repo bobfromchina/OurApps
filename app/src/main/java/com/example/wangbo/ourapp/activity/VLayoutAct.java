@@ -18,7 +18,7 @@ import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
 import com.alibaba.android.vlayout.layout.StaggeredGridLayoutHelper;
 import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 import com.example.wangbo.ourapp.R;
-import com.example.wangbo.ourapp.adapter.MyAadapter;
+import com.example.wangbo.ourapp.adapter.MyAdapter;
 import com.example.wangbo.ourapp.view.RecyclerViewHeaderAndFooter;
 import com.jackmar.jframelibray.base.JBaseAct;
 
@@ -68,7 +68,7 @@ public class VLayoutAct extends JBaseAct {
         layoutHelper1.setAspectRatio(2.0f);
         layoutHelper1.setMargin(20, 10, 20, 10);
         layoutHelper1.setPadding(20, 10, 20, 10);
-        delegateAdapter.addAdapter(new MyAadapter(this, data, layoutHelper1, 3));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, layoutHelper1, 3));
 
         // 网格布局
         GridLayoutHelper helper = new GridLayoutHelper(3);
@@ -79,12 +79,12 @@ public class VLayoutAct extends JBaseAct {
         helper.setHGap(3);
         helper.setVGap(3);
         helper.setAutoExpand(true);
-        MyAadapter myAdapter = new MyAadapter(this, data, helper, 6);
+        MyAdapter myAdapter = new MyAdapter(this, data, helper, 6);
         delegateAdapter.addAdapter(myAdapter);
 
         // 固定布局
-        delegateAdapter.addAdapter(new MyAadapter(this, data, new FixLayoutHelper(20, 20), 1));
-        delegateAdapter.addAdapter(new MyAadapter(this, data, new FixLayoutHelper(FixLayoutHelper.TOP_RIGHT, 20, 20), 1));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, new FixLayoutHelper(20, 20), 1));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, new FixLayoutHelper(FixLayoutHelper.TOP_RIGHT, 20, 20), 1));
 
         // 浮动布局
         VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(150, 150);
@@ -92,27 +92,27 @@ public class VLayoutAct extends JBaseAct {
         List<String> floatData = Arrays.asList("墨尔本");
         FloatLayoutHelper floatLayoutHelper = new FloatLayoutHelper();
         floatLayoutHelper.setBgColor(Color.YELLOW);
-        delegateAdapter.addAdapter(new MyAadapter(this, floatData, floatLayoutHelper, 1, layoutParams));
+        delegateAdapter.addAdapter(new MyAdapter(this, floatData, floatLayoutHelper, 1, layoutParams));
 
         // 列表布局，1行可显示多列item
         ColumnLayoutHelper columnLayoutHelper = new ColumnLayoutHelper();
         columnLayoutHelper.setWeights(new float[]{40.0f, 30.0f, 30.0f});
-        delegateAdapter.addAdapter(new MyAadapter(this, data, columnLayoutHelper, 3));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, columnLayoutHelper, 3));
 
         // 单行布局
         List<String> dataSingle = Arrays.asList("单行布局");
-        delegateAdapter.addAdapter(new MyAadapter(this, dataSingle, new SingleLayoutHelper(), 1));
+        delegateAdapter.addAdapter(new MyAdapter(this, dataSingle, new SingleLayoutHelper(), 1));
 
         //一拖N布局（N最大为4）,即OnePlusNLayoutHelper最多只能有5个item。
         OnePlusNLayoutHelper onePlusNLayoutHelper = new OnePlusNLayoutHelper();
         onePlusNLayoutHelper.setColWeights(new float[]{20.0f});//设置左边一栏占10%
         onePlusNLayoutHelper.setRowWeight(30.0f);//设置右边上半部分占30%
         onePlusNLayoutHelper.setBgColor(Color.YELLOW);
-        delegateAdapter.addAdapter(new MyAadapter(this, data, onePlusNLayoutHelper, 5));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, onePlusNLayoutHelper, 5));
 
         // 吸附布局 true  == top ? top : bottom
-        delegateAdapter.addAdapter(new MyAadapter(this, data, new StickyLayoutHelper(true), 1));
-        delegateAdapter.addAdapter(new MyAadapter(this, data, new StickyLayoutHelper(false), 1));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, new StickyLayoutHelper(true), 1));
+        delegateAdapter.addAdapter(new MyAdapter(this, data, new StickyLayoutHelper(false), 1));
 
         // 瀑布流
         StaggeredGridLayoutHelper staggeredGridLayoutHelper = new StaggeredGridLayoutHelper(3, 0);// 显示3行，行距0
@@ -124,9 +124,9 @@ public class VLayoutAct extends JBaseAct {
                 "埃及", "菲律宾", "印度尼西亚", "新加坡", "阿富汗", "泰国", "赞比亚",
                 "埃及", "菲律宾", "印度尼西亚", "新加坡", "阿富汗", "泰国", "赞比亚",
                 "埃及", "菲律宾", "印度尼西亚", "新加坡");
-        delegateAdapter.addAdapter(new MyAadapter(this, dataMore, staggeredGridLayoutHelper, 25) {
+        delegateAdapter.addAdapter(new MyAdapter(this, dataMore, staggeredGridLayoutHelper, 25) {
             @Override
-            public void onBindViewHolder(MyAadapter.MainViewHolder holder, int position) {
+            public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
 
                 VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200);

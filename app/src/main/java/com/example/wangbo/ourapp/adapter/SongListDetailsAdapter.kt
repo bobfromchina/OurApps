@@ -60,8 +60,8 @@ class SongListDetailsAdapter(context: Context, data: List<MusicListDetails>, lay
         /**
          *  下标
          */
-//        val positions: TextView = viewHolder.itemView.findViewById(R.id.positions)
-//        positions.text = (position + 1).toString()
+        val positions: TextView = viewHolder.itemView.findViewById(R.id.positions)
+        positions.text = (position + 1).toString()
 
         /**
          *  名字

@@ -1,6 +1,7 @@
 package com.example.wangbo.ourapp.activity
 
 import android.annotation.SuppressLint
+import android.app.Service
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.hardware.Camera
@@ -20,10 +21,11 @@ import java.util.Arrays
 
 import butterknife.BindView
 import butterknife.OnClick
+import android.os.Vibrator
+import android.widget.TextView
 
 /**
  * Created by wangbo on 2018/7/27.
- *
  *
  * 灯光实验室
  */
@@ -37,6 +39,9 @@ class LightShowAct : JBaseAct() {
 
     @BindView(R.id.image_bg)
     lateinit var imgBg: ImageView
+
+    @BindView(R.id.open_light)
+    lateinit var showLight: TextView
 
     internal var list = Arrays.asList("#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF", "#8B00FF")
 
@@ -57,15 +62,18 @@ class LightShowAct : JBaseAct() {
             imgBg.animation = show
             imgBg.clearAnimation()
             imgBg.animation = fade
+            val vv = application.getSystemService(Service.VIBRATOR_SERVICE) as Vibrator
+            vv.vibrate(2000)//震半秒钟
         }
     }
 
-    internal var runnable: Runnable = object : Runnable {
+    private var runnable: Runnable = object : Runnable {
         override fun run() {
             if (isStar) {
                 handler.sendEmptyMessage(position)
                 position = (position + 1) % list.size
             }
+
             handler.postDelayed(this, 3000)
         }
     }
@@ -83,7 +91,6 @@ class LightShowAct : JBaseAct() {
             fadeAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha_fade)
             fadeAlpha.duration = BREATH_TIME.toLong()
             fadeAlpha.startOffset = 100
-
             return fadeAlpha
         }
 
@@ -117,10 +124,11 @@ class LightShowAct : JBaseAct() {
                 val parameter = camera.parameters
                 if (!isOpen) {
                     openLight(parameter)
+                    showLight.text = "关灯"
                 } else {
                     closeLight(parameter)
+                    showLight.text = "开灯"
                 }
-                camera.parameters = parameter
             }
 
             R.id.star_light -> if (isStar) {
@@ -144,14 +152,14 @@ class LightShowAct : JBaseAct() {
 
     private fun closeLight(parameter: Camera.Parameters) {
         isOpen = false
-        camera.stopPreview()
         parameter.flashMode = Camera.Parameters.FLASH_MODE_OFF
+        camera.parameters = parameter
     }
 
     private fun openLight(parameter: Camera.Parameters) {
         isOpen = true
-        camera.startPreview()
         parameter.flashMode = Camera.Parameters.FLASH_MODE_TORCH
+        camera.parameters = parameter
     }
 
     private fun openStar() {

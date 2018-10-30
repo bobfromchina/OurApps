@@ -183,6 +183,7 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
         headImg = headerView.findViewById<View>(R.id.img_head) as RoundedImageView
         name = headerView.findViewById<View>(R.id.tv_username) as TextView
         headerView.findViewById<View>(R.id.ll_nav_homepage).setOnClickListener(this)
+        headerView.findViewById<View>(R.id.ll_web).setOnClickListener(this)
         headerView.findViewById<View>(R.id.ll_weather).setOnClickListener(this)
         headerView.findViewById<View>(R.id.ll_light).setOnClickListener(this)
         headerView.findViewById<View>(R.id.ll_nav_deedback).setOnClickListener(this)
@@ -196,19 +197,22 @@ class OneFragment : JBaseFg(), RecyclerListAdapter.OnItemClickedListener<OneHead
         when (view.id) {
         // 项目首页
             R.id.ll_nav_homepage -> launchActivity(ProjectPackAct::class.java)
+
+        // 可康安网页项目测试
+            R.id.ll_web -> launchActivity(WebTestActivity::class.java)
         // 我的天气
             R.id.ll_weather -> launchActivity(WeatherAct::class.java)
         // 我的灯光
             R.id.ll_light -> launchActivity(LightShowAct::class.java)
         //  问题反馈
-            R.id.ll_nav_deedback -> showAlert("提示", "我们有什么地方做的不好的，请及时联系我们，谢谢！", "QQ联系", "留言联系", { dialogInterface, i ->
+            R.id.ll_nav_deedback -> showAlert("提示", "我们有什么地方做的不好的，请及时联系我们，谢谢！", "QQ联系", "留言联系", { _, _ ->
                 val url = "mqqwpa://im/chat?chat_type=wpa&uin=601211498"
                 try {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 } catch (e: Exception) {
                     showToast("未安装手Q或安装的版本不支持")
                 }
-            }) { dialogInterface, i -> launchActivity(FeedBookAct::class.java) }.show()
+            }) { _, _ -> launchActivity(FeedBookAct::class.java) }.show()
         //  关于我们
             R.id.ll_nav_about -> launchActivity(AboutUsAct::class.java)
         //  登录

@@ -101,14 +101,14 @@ class FourFragment : JBaseFg() {
             R.id.tv_song -> if (UserManager.getInstance().checkLogin(context, true))
                 launchActivity(MineSongAct::class.java)
 
-            R.id.tv_message -> showAlert("提示", "我们有什么地方做的不好的，请及时联系我们，谢谢！", "QQ联系", "留言联系", { dialogInterface, i ->
+            R.id.tv_message -> showAlert("提示", "我们有什么地方做的不好的，请及时联系我们，谢谢！", "QQ联系", "留言联系", { _, _ ->
                 val url = "mqqwpa://im/chat?chat_type=wpa&uin=601211498"
                 try {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 } catch (e: Exception) {
                     showToast("未安装手Q或安装的版本不支持")
                 }
-            }) { dialogInterface, i -> launchActivity(FeedBookAct::class.java) }.show()
+            }) { _, _ -> launchActivity(FeedBookAct::class.java) }.show()
         }
     }
 }

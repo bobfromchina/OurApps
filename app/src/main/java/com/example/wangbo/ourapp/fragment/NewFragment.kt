@@ -6,8 +6,6 @@ import android.widget.FrameLayout
 import android.widget.TextView
 
 import com.bigkoo.convenientbanner.ConvenientBanner
-import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
-import com.bigkoo.convenientbanner.holder.Holder
 import com.bigkoo.convenientbanner.listener.OnItemClickListener
 import com.example.wangbo.ourapp.R
 import com.example.wangbo.ourapp.activity.WebViewActivity
@@ -140,7 +138,7 @@ class NewFragment : PLEFragment(), OnItemClickListener, OnLoadMoreListener, OnRe
 
             bannerList.add(bean[0].images[0])
 
-            banner.setPages(CBViewHolderCreator<Holder<String>> { NetWorkImageHolderView() }, bannerList)
+            banner.setPages({ NetWorkImageHolderView() }, bannerList)
 
             bean.removeAt(0)
 
@@ -154,7 +152,9 @@ class NewFragment : PLEFragment(), OnItemClickListener, OnLoadMoreListener, OnRe
             oneAdapter.addDataToLast(bean)
         }
 
-        OurAnimation.runLayoutAnimation(listView)
+        if (pageIndex == 1) {
+            OurAnimation.runLayoutAnimation(listView)
+        }
     }
 
     private fun initBanner() {

@@ -13,8 +13,8 @@ import com.jackmar.jframelibray.base.JBaseAct
  */
 class KotlinTestAct : JBaseAct() {
 
-    @BindView(R.id.tv_showMessage)
-    lateinit var tvMessage: TextView
+//    @BindView(R.id.tv_showMessage)
+//    lateinit var tvMessage: TextView
 
     // 定义变量
     var name: String = "吃饭啦"

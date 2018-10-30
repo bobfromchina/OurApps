@@ -33,15 +33,17 @@ class WeatherAct : JBaseAct() {
 
     private var weatherAdapter: WeatherAdapter? = null
 
-    private lateinit var nowCity: TextView
+    private var nowCity: TextView? = null
 
-    private lateinit var nowDate: TextView
+    private var nowDate: TextView? = null
 
-    private lateinit var nowGanMao: TextView
+    private var nowGanMao: TextView? = null
 
-    private lateinit var nowWenDu: TextView
+    private var nowWenDu: TextView? = null
 
-    private lateinit var nowWind: TextView
+    private var nowWind: TextView? = null
+
+    private var headerContainer: LinearLayout? = null
 
     @BindView(R.id.common_list)
     lateinit var listView: RecyclerViewHeaderAndFooter
@@ -62,26 +64,29 @@ class WeatherAct : JBaseAct() {
     override fun initView() {
         weatherAdapter = WeatherAdapter(listData, context)
         listView.adapter = weatherAdapter
+        val headView = layoutInflater.inflate(R.layout.activity_wearth, null, false)
+        if (listView.headerCount < 1) {
+            listView.addHeaderView(headView)
+            nowCity = headView.findViewById(R.id.now_city)
+            nowDate = headView.findViewById(R.id.now_date)
+            nowGanMao = headView.findViewById(R.id.now_ganmao)
+            nowWenDu = headView.findViewById(R.id.now_wendu)
+            nowWind = headView.findViewById(R.id.now_wind)
+            headerContainer = headView.findViewById(R.id.ll_container)
+            headerContainer!!.visibility = View.GONE
+        }
     }
 
     override fun initData() {
         getPageData("hangzhou")
-        getWeatherDetails("hangzhou")
+        getWeatherDetails("杭州")
     }
 
     private fun getPageData(city: String) {
         HttpHelper.getInstance(context).getWeather(city, ProgressSubscriber(context, IOnNextListener<List<WeatherBean>>
         { o ->
+            headerContainer!!.visibility = View.VISIBLE
             weatherAdapter!!.setData(o)
-            val headView = layoutInflater.inflate(R.layout.activity_wearth, null, false)
-            if (listView.headerCount < 1) {
-                listView.addHeaderView(headView)
-                nowCity = headView.findViewById(R.id.now_city)
-                nowDate = headView.findViewById(R.id.now_date)
-                nowGanMao = headView.findViewById(R.id.now_ganmao)
-                nowWenDu = headView.findViewById(R.id.now_wendu)
-                nowWind = headView.findViewById(R.id.now_wind)
-            }
             OurAnimation.runLayoutAnimation(listView)
         }))
     }
@@ -94,17 +99,20 @@ class WeatherAct : JBaseAct() {
     @SuppressLint("SetTextI18n")
     private fun getWeatherDetails(city: String) {
         HttpHelper.getInstance(context).getWeatherDetails(city, ProgressSubscriber(context, IOnNextListener<WeatherDetails> { o ->
-            title.text = o.cityno
 
-            nowCity.text = "当前城市：" + o.citynm + "  " + o.cityno
+            val wBean: WeatherDetails = o
 
-            nowDate.text = "今日日期：" + o.days + "  " + o.week
+            title.text = wBean.cityno
 
-            nowGanMao.text = "温度区间：" + o.weather + "  " + o.temperature
+            nowCity!!.text = "当前城市：" + wBean.citynm + "  " + wBean.cityno
 
-            nowWenDu.text = "当前温度：" + o.temperature_curr
+            nowDate!!.text = "今日日期：" + wBean.days + "  " + wBean.week
 
-            nowWind.text = "今日风向：" + o.wind + "  " + o.winp
+            nowGanMao!!.text = "温度区间：" + wBean.weather + "  " + wBean.temperature
+
+            nowWenDu!!.text = "当前温度：" + wBean.temperature_curr
+
+            nowWind!!.text = "今日风向：" + wBean.wind + "  " + wBean.winp
         }))
     }
 

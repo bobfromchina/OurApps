@@ -23,7 +23,11 @@ import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.alibaba.android.vlayout.layout.StickyLayoutHelper
 import com.example.wangbo.ourapp.adapter.ShadowAdapter
 import com.example.wangbo.ourapp.adapter.TitleAdapter
+import com.example.wangbo.ourapp.bean.MusicListBean
+import com.example.wangbo.ourapp.http.HttpHelper
 import com.example.wangbo.ourapp.utils.CommonUtils
+import com.jackmar.jframelibray.http.subscriber.IOnNextListener
+import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber
 import jp.wasabeef.glide.transformations.BlurTransformation
 
 /**
@@ -41,10 +45,7 @@ class SongListDetailsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener
     @BindView(R.id.common_list)
     lateinit var commonList: RecyclerViewHeaderAndFooter
 
-    private var listData: ArrayList<MusicListDetails> = ArrayList()
-
-
-    var delegateAdapter: DelegateAdapter? = null
+    private var delegateAdapter: DelegateAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,22 +69,7 @@ class SongListDetailsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener
 
         bean = intent.getParcelableExtra(EXTRA_DASE_DATA)
 
-        Glide.with(context).load(bean.picUrl).bitmapTransform(BlurTransformation(context, 25, 3)).into(imgBg)
-
-        /**
-         *   高斯布局
-         */
-        delegateAdapter!!.addAdapter(ShadowAdapter(this, bean, LinearLayoutHelper(), 1))
-
-        /**
-         *  标题列表
-         */
-        delegateAdapter!!.addAdapter(TitleAdapter(this, bean, StickyLayoutHelper(true), 1))
-
-        /**
-         *   列表数据
-         */
-        delegateAdapter!!.addAdapter(SongListDetailsAdapter(this, CommonUtils.createRangeData(MusicListDetails::class.java, 20), LinearLayoutHelper(), 20))
+        Glide.with(context).load(bean.picUrl).bitmapTransform(BlurTransformation(context, 25, 2)).into(imgBg)
     }
 
     override fun initData() {
@@ -92,35 +78,25 @@ class SongListDetailsAct : JBaseAct(), RecyclerListAdapter.OnItemClickedListener
 
     @SuppressLint("SetTextI18n")
     private fun getData() {
-//        TODO(这里的东西  晚一点再写  后台IP给我屏蔽了)
 
-//        HttpHelper.getInstance(context).getPlayListDetails(bean.id, ProgressSubscriber(context, IOnNextListener<MusicListBean> { o ->
-        //            songListDetailsAdapter.setData(o.tracks)
+        HttpHelper.getInstance(context).getPlayListDetails(bean.id, ProgressSubscriber(context, IOnNextListener<MusicListBean> { o ->
 
-//            num.text = "(共" + o.tracks.size + "首)"
-//
-//            if (o.commentCount < 10000) {
-//                commentNum.text = "+ 收藏（" + +o.commentCount + "）"
-//            } else if (o.commentCount > 10000 && o.commentCount < 100000) {
-//                commentNum.text = "+ 收藏（" + o.commentCount.toString().substring(0, 1) + "万）"
-//            } else if (o.commentCount > 100000 && o.commentCount < 1000000) {
-//                commentNum.text = "+ 收藏（" + o.commentCount.toString().substring(0, 2) + "万）"
-//            } else if (o.commentCount > 1000000 && o.commentCount < 10000000) {
-//                commentNum.text = "+ 收藏（" + o.commentCount.toString().substring(0, 3) + "万）"
-//            } else if (o.commentCount > 10000000 && o.commentCount < 100000000) {
-//                commentNum.text = "+ 收藏（" + o.commentCount.toString().substring(0, 4) + "万）"
-//            } else if (o.commentCount > 100000000) {
-//                commentNum.text = "+ 收藏（" + o.commentCount.toString().substring(0, 1) + "." + o.commentCount.toString().substring(2, 3) + "亿）"
-//            }
-//
-//            name.text = o.name
-//
-//            author.text = o.nickname
-//
-//            GlideImageLoadUtil.loadImage(context, o.coverImgUrl, listImg)
-//
-//            GlideImageLoadUtil.loadImage(context, o.avatarUrl, authorImg)
-//        }))
+            /**
+             *   高斯布局
+             */
+            delegateAdapter!!.addAdapter(ShadowAdapter(this, bean, LinearLayoutHelper(), 1))
+
+            /**
+             *  标题列表
+             */
+            delegateAdapter!!.addAdapter(TitleAdapter(this, bean, StickyLayoutHelper(true), 1))
+
+            /**
+             *   列表数据
+             */
+            delegateAdapter!!.addAdapter(SongListDetailsAdapter(this, o.tracks, LinearLayoutHelper(), o.tracks.size))
+           // delegateAdapter!!.addAdapter(SongListDetailsAdapter(this, CommonUtils.createRangeData(MusicListDetails::class.java,20), LinearLayoutHelper(), 20))
+        }))
     }
 
     override fun onClicked(position: Int, songBean: MusicListDetails) {

@@ -156,6 +156,11 @@
             android:label="Kotlin测试类"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.WebTestActivity"
+            android:label="可康安项目接入"
+            android:screenOrientation="portrait" />
+
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -163,4 +168,5 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>

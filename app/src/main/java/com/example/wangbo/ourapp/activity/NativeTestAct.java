@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
@@ -19,8 +20,13 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 
 import com.example.wangbo.ourapp.R;
+import com.example.wangbo.ourapp.bean.PersonInfo;
+import com.example.wangbo.ourapp.http.HttpHelper;
+import com.example.wangbo.ourapp.manager.UserManager;
 import com.example.wangbo.ourapp.utils.WebViewHelper;
 import com.jackmar.jframelibray.base.JBaseAct;
+import com.jackmar.jframelibray.http.subscriber.IOnNextListener;
+import com.jackmar.jframelibray.http.subscriber.ProgressSubscriber;
 
 import java.util.Map;
 
@@ -141,6 +147,12 @@ public class NativeTestAct extends JBaseAct {
     @Override
     public void initData() {
 
+        HttpHelper.getInstance(context).getUserInfo(UserManager.getInstance().getUserId(), new ProgressSubscriber<PersonInfo>(context, new IOnNextListener() {
+            @Override
+            public void onNext(Object o) {
+
+            }
+        }));
     }
 
     @Override
@@ -162,5 +174,11 @@ public class NativeTestAct extends JBaseAct {
              */
             return "H5调用了Native的方法,并获取传递传输";
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        webView.removeAllViews();
     }
 }
