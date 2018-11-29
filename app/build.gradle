@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
@@ -26,6 +27,12 @@ android {
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.jiamu.colorful.greendao'
+        targetGenDir 'src/main/java'
     }
 
     signingConfigs {
@@ -55,15 +62,17 @@ dependencies {
     //网页解析
     compile 'org.jsoup:jsoup:1.10.2'
 
+    compile 'org.greenrobot:greendao:3.2.2'
+
     // 架包支持
     compile "com.android.support:palette-v7:$SUPPORT_LIBRARY_VERSION"
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    //注解框架
-    compile 'com.jakewharton:butterknife:8.8.1'
+//    //注解框架
+    compile 'com.jakewharton:butterknife:8.5.1'
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    kapt "com.jakewharton:butterknife-compiler:8.8.1"
+    kapt "com.jakewharton:butterknife-compiler:8.5.1"
 
 
     compile 'com.aliyun.dpa:oss-android-sdk:2.3.0'

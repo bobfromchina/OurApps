@@ -43,6 +43,11 @@ class WebTestActivity : JBaseAct() {
         val settings = web.settings
         settings.javaScriptEnabled = true
         settings.javaScriptCanOpenWindowsAutomatically = true
+        settings.domStorageEnabled = true
+        settings.setAppCacheMaxSize(1024*1024*8)
+        settings.setAppCachePath(context.cacheDir.absolutePath)
+        settings.allowContentAccess = true
+        settings.setAppCacheEnabled(true)
 
         web.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {

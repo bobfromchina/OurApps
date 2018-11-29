@@ -40,7 +40,6 @@ public class NetWorkCenter {
     private static JFrameConfig mFrameConfig;
     private static Properties Propertiesprop;
 
-
     /**
      * 获取网络请求的接口
      *
@@ -63,7 +62,6 @@ public class NetWorkCenter {
                 .addCallAdapterFactory(rxJavaCallAdapterFactory).build();
         return retrofit.create(t);
     }
-
 
     /**
      * 获取网络请求的接口
@@ -88,14 +86,11 @@ public class NetWorkCenter {
         return retrofit.create(t);
     }
 
-
     /**
      * 添加请求的Header
      * 此处既可以添加header,可以不添加Header
      * <p>
      * 如果不需要传header，直接传参数null
-     *
-     * @return
      */
     static OkHttpClient genericClient(@Nullable final HashMap<String, String> headers) {
         OkHttpClient client = builder.addInterceptor(new Interceptor() {
@@ -143,5 +138,4 @@ public class NetWorkCenter {
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
         isInit = true;
     }
-
 }

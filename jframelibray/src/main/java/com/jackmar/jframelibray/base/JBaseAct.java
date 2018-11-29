@@ -2,6 +2,7 @@ package com.jackmar.jframelibray.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,6 +16,7 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -641,4 +643,15 @@ public abstract class JBaseAct extends FragmentActivity implements IBroadcast, E
         return bundle;
     }
 
+
+    public AlertDialog showAlert(String title, String message, String btn, String btn1, DialogInterface.OnClickListener onCancelListener, DialogInterface.OnClickListener onCancelListener1) {
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(btn, onCancelListener)
+                .setNegativeButton(btn1, onCancelListener1)
+                .create();
+        dialog.show();
+        return dialog;
+    }
 }

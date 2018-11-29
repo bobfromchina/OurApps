@@ -1,6 +1,71 @@
 
+H5 与 Native交互
 
-grid header and footer
-http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0722/3214.html
+传值方式可以通过javaScriptInterface去操作，也可以在Url后台去拼接字符串，但是这样是不安全的
+
+取值方式可以通过loadurl、evalulateJavaScript去调用H5的JS，然后获取到后台给的传输去解析数据，也可以通过拦截请求操作去获取数据
+
+安卓的性能优化
+
+安卓的性能优化主要分布在布局，网络，电量和安装包上，布局上我们可以去打开GPU来查看布局渲染颜色，分别是蓝色，绿色，粉色和红色，我们尽量要做到绿色，减少布局层次，加快布局的渲染速度，
+避免失帧。
+网络优化在请求的时候做出判断，是否连接网络，减少请求量，conetivityManager。
+多次请求会给电量带来极大的消耗。
+安装包的大小我们可以尽量的删除不必要的代码，以及不需要的图片，同时做好混淆可以减小安装包的大小。
+
+安卓的内存优化  GC垃圾回收机制
+
+安卓的内存优化很多时候都出现在长引用上，未关闭的handler 、timer、wevView、camras,我们在很多时候做了操作就直接finish掉了页面，但是没有去释放这些引用的内存，我们应该在做了
+相应的操作之后，重写onDestory释放掉或者remove他们，减少内存的占有量，我们可以介入leakCanary来检测内存，在对应的类做出调整。
+
+leakCanary 的原理就是绑定了activity的生命周期，然后检测是否有内存泄漏，然后做成快照的方式发送给用户
+
+垃圾回收机制是系统自带的一个管理用户内存的机制，以消耗系统性能为代价来释放不需要的内存及未引用的内存，来提高我们的编码效率，我们可以使用计数法和gc root
+来管理清除内存
+
+V-layout
+
+淘宝的V-layout主要是为RecyclerView添加VLayoutManager,适配器使用VLayout的delegateAdapter，通过delegateAdapter -> addAdapter()的方法为recycleView添加item,
+被添加的item需要继承至delegateAdapter，然后我们可以通过添加相应的layoutHelper来更改item的样式使得我们获取到相应的效果
+V-layout的好处是可以快速的集成一些较为的复杂的布局，同时减少了View的层次关系，可以让Ui更快的渲染，避免卡顿状态，给用户更好的体验
+
+rxAndroid + retrofit + mvp
+
+mvp是一个框架结构，独立化了View Model 和Presenter ，这样的好处是为了让代码看起来更加的规整，便于理解，方便解耦，减少对Activity的任务量。
+而rxAndroid和retrofit这个组合框架是拿来异步请求数据的，retrofit是一个基于okhttp3的请求框架，通过restful的风格来做请求样式，
+rxandroid通过观察者模式来接听被观察者来获取请求回来的数据，并回执给activity进行刷新UI.
+
+handler 和 rxAndroid的区别在于，handler刷新UI需要创建message来发送消息到MessageQueue，然后looper在抓出message给handler去做操作刷新数据，而rxandroid则直接以
+观察者模式来获取对象，两者相比较就会显得后者更加的方便快捷。
+
+事件分发机制
+android的时间分发机制是通过onDisPatcher来操作的，onInterceptTouchEvent点击事件拦截，dispatchTouchEvent分发、onTouchEvent处理，点击事件是开始于DecorView，
+我们可以去实现组件的OnTouchListener  然后根据MotionEvent做相应的操作
+
+glide的使用
+glide加载图片高效性很强，流畅，支持gif video加载，带有动画加载方式，默认缓存,同时他的target目录下很多方法，好比处理一个圆头像这些，都是非常好用的
+glide在缓存这一块做的非常棒，他默认把加载好的图片缓存在这了内充中，在用户二次调用的时候可以直接加载
+
+DVM  ART JVM
+这三者 都是虚拟机，前两者是android，后者是java的，DVM将java代码转换成.class文件，然后再将.class转换为.dex,进行编译，而在4.4版本后，google将DVM给摒弃掉了，打算改用了art，
+它的好处是在在编译的时候，只要你有过一次加载，那么后期就可以预加载项目，加快编译流程
+
+四种启动模式
+stander singletop singletask singleinstance
+
+standard 默认启动栈
+singleTop 如果在A启动了A，那么他会复用A
+singleTask 如果ABCD 四个类  在D 启用了A 他会干掉BCD, 一般当做MainAct使用
+singleinstance A B C 他是一个基于singleTask的启动模式，不同在于他是启动另一个栈
+
+断点续传  aria框架
+
+生命周期
+
+onCreate onstart onRestatrt onResume onpouse onstop ondestory
+
+https://github.com/bobfromchina/ZoomHeader
+
+
 
 

@@ -61,7 +61,7 @@ public final class ResponseInterceptor implements Interceptor {
                     //获取返回的实体（最外层）
                     result = JSON.parseObject(baseResult, BaseResult.class);
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
                 if (result != null) {
                     //此处处理服务器返回的判断
